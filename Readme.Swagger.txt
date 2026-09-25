@@ -1,0 +1,2 @@
+Open the API through the the provided file swagger.json then generate your own solution with any language you prefer.
+you may follow instruction given on: https://stackoverflow.com/questions/33354557/how-to-generate-java-client-code-for-swagger-rest-api-documentation

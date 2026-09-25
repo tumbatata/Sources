@@ -1,0 +1,109 @@
+POST http://localhost:59252/api/Quotes/create
+Content-Type: application/json
+
+{
+  "customer": "Customer G",
+  "items": [
+    {
+      "item": "",
+      "quantity": 1,
+      "unitaryPrice": 5,
+      "discountPercentage": 0
+    }
+  ]
+}
+
+###
+
+### Negative quantity
+
+POST http://localhost:59252/api/Quotes/create
+Content-Type: application/json
+
+{
+  "customer": "Customer H",
+  "items": [
+    {
+      "item": "Banana",
+      "quantity": -1,
+      "unitaryPrice": 5,
+      "discountPercentage": 0
+    }
+  ]
+}
+
+###
+
+### Negative unitary price
+
+POST http://localhost:59252/api/Quotes/create
+Content-Type: application/json
+
+{
+  "customer": "Customer I",
+  "items": [
+    {
+      "item": "Banana",
+      "quantity": 1,
+      "unitaryPrice": -5,
+      "discountPercentage": 0
+    }
+  ]
+}
+
+###
+
+### Discount greater than 100 percent
+
+POST http://localhost:59252/api/Quotes/create
+Content-Type: application/json
+
+{
+  "customer": "Customer J",
+  "items": [
+    {
+      "item": "Notebook",
+      "quantity": 1,
+      "unitaryPrice": 100,
+      "discountPercentage": 1.10
+    }
+  ]
+}
+
+###
+
+### Zero quantity
+
+POST http://localhost:59252/api/Quotes/create
+Content-Type: application/json
+
+{
+  "customer": "Customer L",
+  "items": [
+    {
+      "item": "Banana",
+      "quantity": 0,
+      "unitaryPrice": 5,
+      "discountPercentage": 0
+    }
+  ]
+}
+
+###
+
+### Negative discount
+
+POST http://localhost:59252/api/Quotes/create
+Content-Type: application/json
+
+{
+  "customer": "Customer M",
+  "items": [
+    {
+      "item": "Notebook",
+      "quantity": 1,
+      "unitaryPrice": 100,
+      "discountPercentage": -0.10
+    }
+  ]
+}

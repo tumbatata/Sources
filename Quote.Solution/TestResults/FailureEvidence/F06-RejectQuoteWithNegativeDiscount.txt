@@ -1,0 +1,51 @@
+﻿QA FAILURE EVIDENCE
+
+Run ID:
+20260924-175650
+
+Timestamp:
+2026-09-24T17:56:50-03:00
+
+Evidence ID:
+F06
+
+Finding:
+Negative discount is accepted
+
+Automated Scenario:
+Reject quote with negative discount
+
+Test Result Name:
+RejectQuoteWithNegativeDiscount
+
+Outcome:
+Failed
+
+Category:
+Financial Validation / Business Logic
+
+Severity:
+High
+
+Requirement Status:
+Expected validation
+
+Expected:
+HTTP 400 Bad Request
+
+Failure Message:
+Assert.AreEqual falhou. Esperado:<400>. Real:<200>. 
+
+Stack Trace:
+   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209
+   at InvokeStub_Action`2.Invoke(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+--- End of stack trace from previous location ---
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithNegativeDiscount() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 135
+

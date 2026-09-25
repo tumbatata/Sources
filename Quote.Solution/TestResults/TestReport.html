@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>QA Test Report</title>
+
+<style>
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px;
+    background: #f6f7f9;
+    color: #222;
+}
+
+h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 25px 0;
+}
+
+.metric {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    min-width: 150px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.12);
+}
+
+.metric strong {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.performance-card strong {
+    font-size: 20px;
+}
+
+.passed {
+    color: #167c3a;
+    font-weight: bold;
+}
+
+.failed {
+    color: #b42318;
+    font-weight: bold;
+}
+
+.other {
+    color: #7a5b00;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-bottom: 35px;
+}
+
+th {
+    background: #222;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    vertical-align: top;
+}
+
+.notice {
+    padding: 16px;
+    background: #fff4ce;
+    border-left: 5px solid #d89b00;
+    margin: 20px 0;
+}
+
+a {
+    color: #005fb8;
+}
+
+small {
+    color: #666;
+}
+
+code {
+    background: #ececec;
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>QA Automated Test Report</h1>
+
+<p>
+Run ID:
+<strong>20260924-175650</strong>
+<br>
+Generated at:
+2026-09-24T17:56:50-03:00
+</p>
+
+<div class="summary">
+
+<div class="metric">
+    <strong>17</strong>
+    Total Tests
+</div>
+
+<div class="metric">
+    <strong class="passed">11</strong>
+    Passed
+</div>
+
+<div class="metric">
+    <strong class="failed">6</strong>
+    Failed
+</div>
+
+<div class="metric">
+    <strong>0</strong>
+    Skipped
+</div>
+
+<div class="metric">
+    <strong>6</strong>
+    Known Findings Reproduced
+</div>
+
+<div class="metric">
+    <strong class="failed">0</strong>
+    Unexpected Failures
+</div>
+
+<div class="metric">
+    <strong>6</strong>
+    Unique Findings Seen
+</div>
+
+<div class="metric">
+    <strong>6</strong>
+    Recorded Runs
+</div>
+
+<div class="metric performance-card">
+
+    <h3>Performance Scenario</h3>
+
+    <strong class="passed">
+        Passed
+    </strong>
+
+    <div>
+        API response time:
+        <b>2 ms</b>
+    </div>
+
+    <div>
+        Threshold:
+        <b>&lt; 2000 ms</b>
+    </div>
+
+    <small>
+        Measured around the HTTP request using Stopwatch.
+    </small>
+
+</div>
+
+</div>
+
+<div class="notice">
+<strong>Important:</strong>
+Known finding failures represent behaviors already investigated and
+documented in <code>TEST_FINDINGS.md</code>.
+A finding is classified as reproduced only after the automated test
+actually fails. Repeated executions do not create duplicate defects.
+The same finding keeps its unique ID while its occurrence count and
+last-seen timestamp are updated.
+</div>
+
+<h2>Current Finding Status</h2>
+
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Finding</th>
+    <th>Severity</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Occurrences</th>
+    <th>First Seen</th>
+    <th>Last Seen</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+    <td>F01</td>
+    <td>Empty item name returns HTTP 200</td>
+    <td>Medium</td>
+    <td>API Contract / Error Handling</td>
+    <td>
+        <span class="failed">
+            Reproduced
+        </span>
+    </td>
+    <td>6</td>
+    <td>2026-09-24T14:37:17-03:00</td>
+    <td>2026-09-24T17:56:50-03:00</td>
+</tr><tr>
+    <td>F02</td>
+    <td>Negative quantity is accepted</td>
+    <td>High</td>
+    <td>Business Validation / Data Integrity</td>
+    <td>
+        <span class="failed">
+            Reproduced
+        </span>
+    </td>
+    <td>6</td>
+    <td>2026-09-24T14:37:17-03:00</td>
+    <td>2026-09-24T17:56:50-03:00</td>
+</tr><tr>
+    <td>F03</td>
+    <td>Negative unitary price is accepted</td>
+    <td>High</td>
+    <td>Financial Validation / Data Integrity</td>
+    <td>
+        <span class="failed">
+            Reproduced
+        </span>
+    </td>
+    <td>6</td>
+    <td>2026-09-24T14:37:17-03:00</td>
+    <td>2026-09-24T17:56:50-03:00</td>
+</tr><tr>
+    <td>F04</td>
+    <td>Discount greater than 100% is accepted</td>
+    <td>High</td>
+    <td>Financial Validation / Business Logic</td>
+    <td>
+        <span class="failed">
+            Reproduced
+        </span>
+    </td>
+    <td>6</td>
+    <td>2026-09-24T14:37:17-03:00</td>
+    <td>2026-09-24T17:56:50-03:00</td>
+</tr><tr>
+    <td>F05</td>
+    <td>Zero quantity is accepted</td>
+    <td>Medium</td>
+    <td>Business Validation</td>
+    <td>
+        <span class="failed">
+            Reproduced
+        </span>
+    </td>
+    <td>6</td>
+    <td>2026-09-24T14:37:17-03:00</td>
+    <td>2026-09-24T17:56:50-03:00</td>
+</tr><tr>
+    <td>F06</td>
+    <td>Negative discount is accepted</td>
+    <td>High</td>
+    <td>Financial Validation / Business Logic</td>
+    <td>
+        <span class="failed">
+            Reproduced
+        </span>
+    </td>
+    <td>6</td>
+    <td>2026-09-24T14:37:17-03:00</td>
+    <td>2026-09-24T17:56:50-03:00</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Test Execution</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Outcome</th>
+    <th>Scenario</th>
+    <th>Duration</th>
+    <th>Classification</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Able to access isAlive page while the service is running</td>
+    <td>7.81 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Create a quote with 100 items within an acceptable response time</td>
+    <td>7.41 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Reject malformed JSON without exposing internal server details</td>
+    <td>5.5 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="failed">
+            Failed
+        </span>
+    </td>
+    <td>Reject quote with discount greater than 100 percent</td>
+    <td>9.72 ms</td>
+    <td>Known finding F04</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Reject quote with empty customer</td>
+    <td>5.59 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="failed">
+            Failed
+        </span>
+    </td>
+    <td>Reject quote with empty item name</td>
+    <td>12.11 ms</td>
+    <td>Known finding F01</td>
+</tr><tr>
+    <td>
+        <span class="failed">
+            Failed
+        </span>
+    </td>
+    <td>Reject quote with negative discount</td>
+    <td>4.56 ms</td>
+    <td>Known finding F06</td>
+</tr><tr>
+    <td>
+        <span class="failed">
+            Failed
+        </span>
+    </td>
+    <td>Reject quote with negative item quantity</td>
+    <td>4.71 ms</td>
+    <td>Known finding F02</td>
+</tr><tr>
+    <td>
+        <span class="failed">
+            Failed
+        </span>
+    </td>
+    <td>Reject quote with negative unitary price</td>
+    <td>5.23 ms</td>
+    <td>Known finding F03</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Reject quote with no items</td>
+    <td>3.37 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="failed">
+            Failed
+        </span>
+    </td>
+    <td>Reject quote with zero item quantity</td>
+    <td>4.61 ms</td>
+    <td>Known finding F05</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Successfully create a new quote with one item (Customer A, Banana, 3, 5, 15)</td>
+    <td>95.53 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Successfully create a new quote with one item (Customer B, Milk, 2, 10, 20)</td>
+    <td>4.94 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Successfully create a new quote with one item with discount (Customer C, Notebook, 2, 100, 0.10, 20, 180)</td>
+    <td>5.39 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Successfully create a new quote with two items (Customer D, Banana, 3, 5, Milk, 2, 10, 35)</td>
+    <td>5.79 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Successfully create a quote with 100 percent discount</td>
+    <td>5.38 ms</td>
+    <td>Normal execution</td>
+</tr><tr>
+    <td>
+        <span class="passed">
+            Passed
+        </span>
+    </td>
+    <td>Successfully create a quote with multiple items including discount (Customer E, Notebook, 2, 100, 0.10, Mouse, 1, 50, 230)</td>
+    <td>4.41 ms</td>
+    <td>Normal execution</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<a href="FailureEvidence/FailureReport.html">
+Open highlighted failure report
+</a>
+</p>
+
+<p>
+Raw TRX:
+<code>Runs/20260924-175650/TestResults.trx</code>
+</p>
+
+<p>
+Console log:
+<code>Runs/20260924-175650/ConsoleOutput.log</code>
+</p>
+
+</body>
+</html>

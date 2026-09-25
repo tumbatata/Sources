@@ -1,0 +1,109 @@
+﻿{
+    "generatedAt":  "2026-09-24T17:56:50-03:00",
+    "runId":  "20260924-175650",
+    "execution":  {
+                      "total":  17,
+                      "passed":  11,
+                      "failed":  6,
+                      "skipped":  0,
+                      "durationMs":  192.06,
+                      "dotnetExitCode":  1
+                  },
+    "failureClassification":  {
+                                  "knownFindingFailures":  6,
+                                  "unexpectedFailures":  0
+                              },
+    "cumulative":  {
+                       "totalRuns":  6,
+                       "uniqueFindingsSeen":  6,
+                       "activeFindings":  6,
+                       "highSeverityActive":  4,
+                       "mediumSeverityActive":  2
+                   },
+    "performance":  {
+                        "scenarioOutcome":  "Passed",
+                        "apiResponseMs":  2,
+                        "thresholdMs":  2000,
+                        "testDurationMs":  7.41
+                    },
+    "findings":  [
+                     {
+                         "id":  "F01",
+                         "title":  "Empty item name returns HTTP 200",
+                         "scenario":  "Reject quote with empty item name",
+                         "category":  "API Contract / Error Handling",
+                         "severity":  "Medium",
+                         "requirementStatus":  "Strong inconsistency",
+                         "status":  "Reproduced",
+                         "latestOutcome":  "Failed",
+                         "occurrences":  6,
+                         "firstSeen":  "2026-09-24T14:37:17-03:00",
+                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                     },
+                     {
+                         "id":  "F02",
+                         "title":  "Negative quantity is accepted",
+                         "scenario":  "Reject quote with negative item quantity",
+                         "category":  "Business Validation / Data Integrity",
+                         "severity":  "High",
+                         "requirementStatus":  "Expected validation",
+                         "status":  "Reproduced",
+                         "latestOutcome":  "Failed",
+                         "occurrences":  6,
+                         "firstSeen":  "2026-09-24T14:37:17-03:00",
+                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                     },
+                     {
+                         "id":  "F03",
+                         "title":  "Negative unitary price is accepted",
+                         "scenario":  "Reject quote with negative unitary price",
+                         "category":  "Financial Validation / Data Integrity",
+                         "severity":  "High",
+                         "requirementStatus":  "Expected validation",
+                         "status":  "Reproduced",
+                         "latestOutcome":  "Failed",
+                         "occurrences":  6,
+                         "firstSeen":  "2026-09-24T14:37:17-03:00",
+                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                     },
+                     {
+                         "id":  "F04",
+                         "title":  "Discount greater than 100% is accepted",
+                         "scenario":  "Reject quote with discount greater than 100 percent",
+                         "category":  "Financial Validation / Business Logic",
+                         "severity":  "High",
+                         "requirementStatus":  "Expected validation",
+                         "status":  "Reproduced",
+                         "latestOutcome":  "Failed",
+                         "occurrences":  6,
+                         "firstSeen":  "2026-09-24T14:37:17-03:00",
+                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                     },
+                     {
+                         "id":  "F05",
+                         "title":  "Zero quantity is accepted",
+                         "scenario":  "Reject quote with zero item quantity",
+                         "category":  "Business Validation",
+                         "severity":  "Medium",
+                         "requirementStatus":  "Needs clarification",
+                         "status":  "Reproduced",
+                         "latestOutcome":  "Failed",
+                         "occurrences":  6,
+                         "firstSeen":  "2026-09-24T14:37:17-03:00",
+                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                     },
+                     {
+                         "id":  "F06",
+                         "title":  "Negative discount is accepted",
+                         "scenario":  "Reject quote with negative discount",
+                         "category":  "Financial Validation / Business Logic",
+                         "severity":  "High",
+                         "requirementStatus":  "Expected validation",
+                         "status":  "Reproduced",
+                         "latestOutcome":  "Failed",
+                         "occurrences":  6,
+                         "firstSeen":  "2026-09-24T14:37:17-03:00",
+                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                     }
+                 ]
+}

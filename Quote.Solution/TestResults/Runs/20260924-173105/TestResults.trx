@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="7222bdeb-1380-4eb4-8faf-316744c58331" name="thais.silva@NOTE-MC330 2026-09-24 17:31:09" runUser="TAKENET\thais.silva" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-09-24T17:31:09.1592389-03:00" queuing="2026-09-24T17:31:09.1592392-03:00" start="2026-09-24T17:31:07.6586638-03:00" finish="2026-09-24T17:31:09.2344353-03:00" />
+  <TestSettings name="default" id="08f1f4a0-e189-4e88-bb00-148984da99b3">
+    <Deployment runDeploymentRoot="thais.silva_NOTE-MC330_2026-09-24_17_31_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="dc6936c0-bd82-4b42-9e39-32ec04a67f5b" testId="d3e17d0d-d4b0-0dec-d651-485a67d44be1" testName="SuccessfullyCreateAQuoteWith100PercentDiscount" computerName="NOTE-MC330" duration="00:00:00.0054346" startTime="2026-09-24T17:31:09.1124337-03:00" endTime="2026-09-24T17:31:09.1181310-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dc6936c0-bd82-4b42-9e39-32ec04a67f5b">
+      <Output>
+        <StdOut>Given a customer "Customer K"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer K") (0.0s)&#xD;
+And an item "Notebook" with quantity 1, unitary price 100 and discount 1.00&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 1, 100, 1) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the discount amount should be 100&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheDiscountAmountShouldBe(100) (0.0s)&#xD;
+And the line price should be 0&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(0) (0.0s)&#xD;
+And the total price should be 0&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheTotalPriceShouldBe(0) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer K"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer K") (0.0s)&#xD;
+And an item "Notebook" with quantity 1, unitary price 100 and discount 1.00&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 1, 100, 1) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the discount amount should be 100&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheDiscountAmountShouldBe(100) (0.0s)&#xD;
+And the line price should be 0&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(0) (0.0s)&#xD;
+And the total price should be 0&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheTotalPriceShouldBe(0) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="588fc177-6c4b-4cad-8d12-69cc81512334" testId="9378a571-20bd-4751-eed4-01299e277300" testName="SuccessfullyCreateANewQuoteWithOneItem (Customer A,Banana,3,5,15,)" computerName="NOTE-MC330" duration="00:00:00.0947069" startTime="2026-09-24T17:31:08.1434246-03:00" endTime="2026-09-24T17:31:09.0070747-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="588fc177-6c4b-4cad-8d12-69cc81512334">
+      <Output>
+        <StdOut>-&gt; Loading plugin C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\Reqnroll.MSTest.ReqnrollPlugin.dll&#xD;
+-&gt; Loading plugin C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll&#xD;
+-&gt; Using default config&#xD;
+Given a customer "Customer A"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer A") (0.0s)&#xD;
+And an item "Banana" with quantity 3 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 3, 5) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.1s)&#xD;
+Then the line price should be 15&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(15) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer A"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer A") (0.0s)&#xD;
+And an item "Banana" with quantity 3 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 3, 5) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.1s)&#xD;
+Then the line price should be 15&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(15) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="87bb89a6-1fd8-4571-ad34-4f597efc90f9" testId="a5f318cb-2718-a5de-15ec-6e4b18fe3b14" testName="RejectQuoteWithNegativeDiscount" computerName="NOTE-MC330" duration="00:00:00.0046054" startTime="2026-09-24T17:31:09.1231557-03:00" endTime="2026-09-24T17:31:09.1278973-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="87bb89a6-1fd8-4571-ad34-4f597efc90f9">
+      <Output>
+        <StdOut>Given a customer "Customer M"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer M") (0.0s)&#xD;
+And an item "Notebook" with quantity 1, unitary price 100 and discount -0.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 1, 100, -0.1) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer M"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer M") (0.0s)&#xD;
+And an item "Notebook" with quantity 1, unitary price 100 and discount -0.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 1, 100, -0.1) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </Message>
+          <StackTrace>   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209&#xD;
+   at InvokeStub_Action`2.Invoke(Object, Span`1)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()&#xD;
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithNegativeDiscount() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 135&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="9c522ef5-96f2-419c-b583-8ecd0bf14443" testId="e1bb1a55-1b5c-bad3-9cc9-3c65932855b5" testName="SuccessfullyCreateAQuoteWithMultipleItemsIncludingDiscount (Customer E,Notebook,2,100,0.10,Mouse,1,50,230,)" computerName="NOTE-MC330" duration="00:00:00.0044428" startTime="2026-09-24T17:31:09.0294041-03:00" endTime="2026-09-24T17:31:09.0340451-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9c522ef5-96f2-419c-b583-8ecd0bf14443">
+      <Output>
+        <StdOut>Given a customer "Customer E"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer E") (0.0s)&#xD;
+And an item "Notebook" with quantity 2, unitary price 100 and discount 0.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 2, 100, 0.1) (0.0s)&#xD;
+And an item "Mouse" with quantity 1 and unitary price 50&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Mouse", 1, 50) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the quote should contain 2 lines&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheQuoteShouldContainLines(2) (0.0s)&#xD;
+And the total price should be 230&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheTotalPriceShouldBe(230) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer E"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer E") (0.0s)&#xD;
+And an item "Notebook" with quantity 2, unitary price 100 and discount 0.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 2, 100, 0.1) (0.0s)&#xD;
+And an item "Mouse" with quantity 1 and unitary price 50&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Mouse", 1, 50) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the quote should contain 2 lines&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheQuoteShouldContainLines(2) (0.0s)&#xD;
+And the total price should be 230&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheTotalPriceShouldBe(230) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2b9296c6-dd68-4f45-b8b7-9ccf420896ef" testId="0659643b-56ba-01f9-ea00-af009878998f" testName="RejectQuoteWithNegativeItemQuantity" computerName="NOTE-MC330" duration="00:00:00.0048801" startTime="2026-09-24T17:31:09.0591630-03:00" endTime="2026-09-24T17:31:09.0642383-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2b9296c6-dd68-4f45-b8b7-9ccf420896ef">
+      <Output>
+        <StdOut>Given a customer "Customer H"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer H") (0.0s)&#xD;
+And an item "Banana" with quantity -1 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", -1, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer H"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer H") (0.0s)&#xD;
+And an item "Banana" with quantity -1 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", -1, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </Message>
+          <StackTrace>   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209&#xD;
+   at InvokeStub_Action`2.Invoke(Object, Span`1)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()&#xD;
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithNegativeItemQuantity() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 92&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8def3ae5-8617-40ce-8f43-fae5fb071523" testId="23e032dc-c427-35f7-a19b-5f6c027dfed6" testName="RejectMalformedJSONWithoutExposingInternalServerDetails" computerName="NOTE-MC330" duration="00:00:00.0051156" startTime="2026-09-24T17:31:09.1279612-03:00" endTime="2026-09-24T17:31:09.1332186-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8def3ae5-8617-40ce-8f43-fae5fb071523">
+      <Output>
+        <StdOut>When I send malformed JSON to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenISendMalformedJsonToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(400) (0.0s)&#xD;
+And the response should not contain internal exception details&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheResponseShouldNotContainInternalExceptionDetails() (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+When I send malformed JSON to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenISendMalformedJsonToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(400) (0.0s)&#xD;
+And the response should not contain internal exception details&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheResponseShouldNotContainInternalExceptionDetails() (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="15018dd5-9bb2-45bd-b667-114789f7c2a1" testId="97d77096-7995-c202-2f8d-587cb23491ea" testName="CreateAQuoteWith100ItemsWithinAnAcceptableResponseTime" computerName="NOTE-MC330" duration="00:00:00.0074029" startTime="2026-09-24T17:31:09.1332924-03:00" endTime="2026-09-24T17:31:09.1452741-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15018dd5-9bb2-45bd-b667-114789f7c2a1">
+      <Output>
+        <StdOut>Given a customer "Performance Customer"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Performance Customer") (0.0s)&#xD;
+And 100 valid items&#xD;
+-&gt; done: CreateQuoteSteps.GivenValidItems(100) (0.0s)&#xD;
+When I create the quote measuring the response time&#xD;
+PERFORMANCE_API_RESPONSE_MS=3&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuoteMeasuringTheResponseTime() (0.0s)&#xD;
+Then the HTTP status should be 200&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(200) (0.0s)&#xD;
+And the quote should contain 100 lines&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheQuoteShouldContainLines(100) (0.0s)&#xD;
+And the response time should be less than 2000 milliseconds&#xD;
+PERFORMANCE_THRESHOLD_MS=2000&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheResponseTimeShouldBeLessThanMilliseconds(2000) (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Performance Customer"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Performance Customer") (0.0s)&#xD;
+And 100 valid items&#xD;
+-&gt; done: CreateQuoteSteps.GivenValidItems(100) (0.0s)&#xD;
+When I create the quote measuring the response time&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuoteMeasuringTheResponseTime() (0.0s)&#xD;
+Then the HTTP status should be 200&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(200) (0.0s)&#xD;
+And the quote should contain 100 lines&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheQuoteShouldContainLines(100) (0.0s)&#xD;
+And the response time should be less than 2000 milliseconds&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheResponseTimeShouldBeLessThanMilliseconds(2000) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="214f6fa7-c7e3-4f07-acc6-d71667a0359c" testId="f66610a1-9fc1-2fc2-3ba8-16e7cadc4bc6" testName="RejectQuoteWithNegativeUnitaryPrice" computerName="NOTE-MC330" duration="00:00:00.0050498" startTime="2026-09-24T17:31:09.0966863-03:00" endTime="2026-09-24T17:31:09.1019697-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="214f6fa7-c7e3-4f07-acc6-d71667a0359c">
+      <Output>
+        <StdOut>Given a customer "Customer I"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer I") (0.0s)&#xD;
+And an item "Banana" with quantity 1 and unitary price -5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 1, -5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer I"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer I") (0.0s)&#xD;
+And an item "Banana" with quantity 1 and unitary price -5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 1, -5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </Message>
+          <StackTrace>   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209&#xD;
+   at InvokeStub_Action`2.Invoke(Object, Span`1)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()&#xD;
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithNegativeUnitaryPrice() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 100&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="aebef5b5-db63-426b-9945-bfa42d587113" testId="84517ab1-9183-c601-1690-ec5bda715a0d" testName="SuccessfullyCreateANewQuoteWithOneItem (Customer B,Milk,2,10,20,)" computerName="NOTE-MC330" duration="00:00:00.0050452" startTime="2026-09-24T17:31:09.0119122-03:00" endTime="2026-09-24T17:31:09.0172119-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aebef5b5-db63-426b-9945-bfa42d587113">
+      <Output>
+        <StdOut>Given a customer "Customer B"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer B") (0.0s)&#xD;
+And an item "Milk" with quantity 2 and unitary price 10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Milk", 2, 10) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the line price should be 20&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(20) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer B"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer B") (0.0s)&#xD;
+And an item "Milk" with quantity 2 and unitary price 10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Milk", 2, 10) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the line price should be 20&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(20) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b9df0709-5511-49fb-8952-6d30c4005e4e" testId="f8173a55-3d58-673c-2077-b38297107dd4" testName="RejectQuoteWithZeroItemQuantity" computerName="NOTE-MC330" duration="00:00:00.0047241" startTime="2026-09-24T17:31:09.1181958-03:00" endTime="2026-09-24T17:31:09.1230933-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b9df0709-5511-49fb-8952-6d30c4005e4e">
+      <Output>
+        <StdOut>Given a customer "Customer L"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer L") (0.0s)&#xD;
+And an item "Banana" with quantity 0 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 0, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer L"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer L") (0.0s)&#xD;
+And an item "Banana" with quantity 0 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 0, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </Message>
+          <StackTrace>   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209&#xD;
+   at InvokeStub_Action`2.Invoke(Object, Span`1)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()&#xD;
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithZeroItemQuantity() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 127&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="fc34128e-c833-4702-ab40-af6952276921" testId="d06ce2b1-4175-7b37-4ffb-c55c4a562b1e" testName="RejectQuoteWithEmptyItemName" computerName="NOTE-MC330" duration="00:00:00.0125872" startTime="2026-09-24T17:31:09.0459950-03:00" endTime="2026-09-24T17:31:09.0590032-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc34128e-c833-4702-ab40-af6952276921">
+      <Output>
+        <StdOut>Given a customer "Customer G"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer G") (0.0s)&#xD;
+And an item "" with quantity 1 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("", 1, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer G"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer G") (0.0s)&#xD;
+And an item "" with quantity 1 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("", 1, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </Message>
+          <StackTrace>   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209&#xD;
+   at InvokeStub_Action`2.Invoke(Object, Span`1)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()&#xD;
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithEmptyItemName() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 84&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="330c89e7-fc81-4ff7-b123-36a93d8ee51a" testId="95d200ea-3bf1-04de-8d8d-3e519febffd9" testName="RejectQuoteWithNoItems" computerName="NOTE-MC330" duration="00:00:00.0043512" startTime="2026-09-24T17:31:09.0413915-03:00" endTime="2026-09-24T17:31:09.0459224-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="330c89e7-fc81-4ff7-b123-36a93d8ee51a">
+      <Output>
+        <StdOut>Given a customer "Customer F"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer F") (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(400) (0.0s)&#xD;
+And the error response should contain "Customer or Items cannot be null or empty"&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheErrorResponseShouldContain("Customer or Items...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer F"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer F") (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(400) (0.0s)&#xD;
+And the error response should contain "Customer or Items cannot be null or empty"&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheErrorResponseShouldContain("Customer or Items...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="74df0f9c-2f73-481e-b1f4-1f5044b51d5f" testId="f5d6b42b-4c89-1761-68dd-53a865bffc36" testName="RejectQuoteWithEmptyCustomer" computerName="NOTE-MC330" duration="00:00:00.0060814" startTime="2026-09-24T17:31:09.0341076-03:00" endTime="2026-09-24T17:31:09.0412879-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="74df0f9c-2f73-481e-b1f4-1f5044b51d5f">
+      <Output>
+        <StdOut>Given a customer ""&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("") (0.0s)&#xD;
+And an item "Banana" with quantity 1 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 1, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(400) (0.0s)&#xD;
+And the error response should contain "Customer or Items cannot be null or empty"&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheErrorResponseShouldContain("Customer or Items...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer ""&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("") (0.0s)&#xD;
+And an item "Banana" with quantity 1 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 1, 5) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheHttpStatusShouldBe(400) (0.0s)&#xD;
+And the error response should contain "Customer or Items cannot be null or empty"&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheErrorResponseShouldContain("Customer or Items...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d3fd26a8-bd4b-43e9-87e4-161438f575dc" testId="45976fd1-d5a5-f6bb-4798-022c13b1c3e0" testName="SuccessfullyCreateANewQuoteWithOneItemWithDiscount (Customer C,Notebook,2,100,0.10,20,180,)" computerName="NOTE-MC330" duration="00:00:00.0055610" startTime="2026-09-24T17:31:09.0175196-03:00" endTime="2026-09-24T17:31:09.0232906-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3fd26a8-bd4b-43e9-87e4-161438f575dc">
+      <Output>
+        <StdOut>Given a customer "Customer C"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer C") (0.0s)&#xD;
+And an item "Notebook" with quantity 2, unitary price 100 and discount 0.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 2, 100, 0.1) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the discount amount should be 20&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheDiscountAmountShouldBe(20) (0.0s)&#xD;
+And the line price should be 180&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(180) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer C"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer C") (0.0s)&#xD;
+And an item "Notebook" with quantity 2, unitary price 100 and discount 0.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 2, 100, 0.1) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the discount amount should be 20&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheDiscountAmountShouldBe(20) (0.0s)&#xD;
+And the line price should be 180&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheLinePriceShouldBe(180) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cf1e5a55-5b4a-41ee-b821-b0c663cd9012" testId="64a1b224-85e2-a446-e140-23058bb7f166" testName="RejectQuoteWithDiscountGreaterThan100Percent" computerName="NOTE-MC330" duration="00:00:00.0101428" startTime="2026-09-24T17:31:09.1020358-03:00" endTime="2026-09-24T17:31:09.1123477-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf1e5a55-5b4a-41ee-b821-b0c663cd9012">
+      <Output>
+        <StdOut>Given a customer "Customer J"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer J") (0.0s)&#xD;
+And an item "Notebook" with quantity 1, unitary price 100 and discount 1.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 1, 100, 1.1) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer J"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer J") (0.0s)&#xD;
+And an item "Notebook" with quantity 1, unitary price 100 and discount 1.10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItemWithDiscount("Notebook", 1, 100, 1.1) (0.0s)&#xD;
+When I try to create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenITryToCreateTheQuote() (0.0s)&#xD;
+Then the HTTP status should be 400&#xD;
+-&gt; error: Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;.  (0.0s)</StdOut>
+        <ErrorInfo>
+          <Message>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </Message>
+          <StackTrace>   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209&#xD;
+   at InvokeStub_Action`2.Invoke(Object, Span`1)&#xD;
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Reqnroll.Bindings.BindingInvoker.InvokeBindingAsync(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepMatchAsync(BindingMatch match, Object[] arguments, DurationHolder durationHolder)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.ExecuteStepAsync(IContextManager contextManager, StepInstance stepInstance)&#xD;
+   at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()&#xD;
+   at Reqnroll.TestRunner.CollectScenarioErrorsAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()&#xD;
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithDiscountGreaterThan100Percent() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 108&#xD;
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6339fdaf-6cde-4828-9a32-3ebf315a455d" testId="040ff182-9e7d-c39f-cce1-a0e767815760" testName="SuccessfullyCreateANewQuoteWithTwoItems (Customer D,Banana,3,5,Milk,2,10,35,)" computerName="NOTE-MC330" duration="00:00:00.0057775" startTime="2026-09-24T17:31:09.0233616-03:00" endTime="2026-09-24T17:31:09.0293425-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6339fdaf-6cde-4828-9a32-3ebf315a455d">
+      <Output>
+        <StdOut>Given a customer "Customer D"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer D") (0.0s)&#xD;
+And an item "Banana" with quantity 3 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 3, 5) (0.0s)&#xD;
+And an item "Milk" with quantity 2 and unitary price 10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Milk", 2, 10) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the quote should contain 2 lines&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheQuoteShouldContainLines(2) (0.0s)&#xD;
+And the total price should be 35&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheTotalPriceShouldBe(35) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given a customer "Customer D"&#xD;
+-&gt; done: CreateQuoteSteps.GivenACustomer("Customer D") (0.0s)&#xD;
+And an item "Banana" with quantity 3 and unitary price 5&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Banana", 3, 5) (0.0s)&#xD;
+And an item "Milk" with quantity 2 and unitary price 10&#xD;
+-&gt; done: CreateQuoteSteps.GivenAnItem("Milk", 2, 10) (0.0s)&#xD;
+When I create the quote&#xD;
+-&gt; done: CreateQuoteSteps.WhenICreateTheQuote() (0.0s)&#xD;
+Then the quote should contain 2 lines&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheQuoteShouldContainLines(2) (0.0s)&#xD;
+And the total price should be 35&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheTotalPriceShouldBe(35) (0.0s)&#xD;
+And the confirmation message should be "Quote created successfully."&#xD;
+-&gt; done: CreateQuoteSteps.ThenTheConfirmationMessageShouldBe("Quote created suc...") (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="88b80e6b-143d-4036-9974-b43773c4ef5d" testId="27ad4e40-da18-2957-631d-3ff19adb554b" testName="AbleToAccessIsAlivePageWhileTheServiceIsRunning" computerName="NOTE-MC330" duration="00:00:00.0081485" startTime="2026-09-24T17:31:09.1453509-03:00" endTime="2026-09-24T17:31:09.1582322-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88b80e6b-143d-4036-9974-b43773c4ef5d">
+      <Output>
+        <StdOut>Given the Quote Service Running&#xD;
+-&gt; done: IsAliveSteps.GivenTheQuoteServiceRunning() (0.0s)&#xD;
+When I check if it is alive&#xD;
+-&gt; done: IsAliveSteps.WhenICallIsAlive() (0.0s)&#xD;
+Then it returns OK (http 200)&#xD;
+-&gt; done: IsAliveSteps.ThenItReturnsOk(200) (0.0s)&#xD;
+&#xD;
+&#xD;
+&#xD;
+TestContext Messages:&#xD;
+Given the Quote Service Running&#xD;
+-&gt; done: IsAliveSteps.GivenTheQuoteServiceRunning() (0.0s)&#xD;
+When I check if it is alive&#xD;
+-&gt; done: IsAliveSteps.WhenICallIsAlive() (0.0s)&#xD;
+Then it returns OK (http 200)&#xD;
+-&gt; done: IsAliveSteps.ThenItReturnsOk(200) (0.0s)</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="SuccessfullyCreateANewQuoteWithTwoItems (Customer D,Banana,3,5,Milk,2,10,35,)" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="040ff182-9e7d-c39f-cce1-a0e767815760">
+      <TestCategory>
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC3" />
+      </TestCategory>
+      <Execution id="6339fdaf-6cde-4828-9a32-3ebf315a455d" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="SuccessfullyCreateANewQuoteWithTwoItems" />
+    </UnitTest>
+    <UnitTest name="SuccessfullyCreateANewQuoteWithOneItemWithDiscount (Customer C,Notebook,2,100,0.10,20,180,)" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="45976fd1-d5a5-f6bb-4798-022c13b1c3e0">
+      <TestCategory>
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC2" />
+      </TestCategory>
+      <Execution id="d3fd26a8-bd4b-43e9-87e4-161438f575dc" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="SuccessfullyCreateANewQuoteWithOneItemWithDiscount" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithEmptyCustomer" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="f5d6b42b-4c89-1761-68dd-53a865bffc36">
+      <TestCategory>
+        <TestCategoryItem TestCategory="AC5" />
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+      </TestCategory>
+      <Execution id="74df0f9c-2f73-481e-b1f4-1f5044b51d5f" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithEmptyCustomer" />
+    </UnitTest>
+    <UnitTest name="RejectMalformedJSONWithoutExposingInternalServerDetails" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="23e032dc-c427-35f7-a19b-5f6c027dfed6">
+      <TestCategory>
+        <TestCategoryItem TestCategory="AC14" />
+        <TestCategoryItem TestCategory="Security" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+      </TestCategory>
+      <Execution id="8def3ae5-8617-40ce-8f43-fae5fb071523" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectMalformedJSONWithoutExposingInternalServerDetails" />
+    </UnitTest>
+    <UnitTest name="SuccessfullyCreateANewQuoteWithOneItem (Customer B,Milk,2,10,20,)" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="84517ab1-9183-c601-1690-ec5bda715a0d">
+      <TestCategory>
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC1" />
+      </TestCategory>
+      <Execution id="aebef5b5-db63-426b-9945-bfa42d587113" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="SuccessfullyCreateANewQuoteWithOneItem" />
+    </UnitTest>
+    <UnitTest name="SuccessfullyCreateAQuoteWith100PercentDiscount" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="d3e17d0d-d4b0-0dec-d651-485a67d44be1">
+      <TestCategory>
+        <TestCategoryItem TestCategory="AC11" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="Boundary" />
+      </TestCategory>
+      <Execution id="dc6936c0-bd82-4b42-9e39-32ec04a67f5b" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="SuccessfullyCreateAQuoteWith100PercentDiscount" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithNegativeUnitaryPrice" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="f66610a1-9fc1-2fc2-3ba8-16e7cadc4bc6">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="Boundary" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC9" />
+      </TestCategory>
+      <Execution id="214f6fa7-c7e3-4f07-acc6-d71667a0359c" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithNegativeUnitaryPrice" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithNegativeDiscount" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="a5f318cb-2718-a5de-15ec-6e4b18fe3b14">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC13" />
+        <TestCategoryItem TestCategory="Boundary" />
+      </TestCategory>
+      <Execution id="87bb89a6-1fd8-4571-ad34-4f597efc90f9" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithNegativeDiscount" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithNoItems" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="95d200ea-3bf1-04de-8d8d-3e519febffd9">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="AC6" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+      </TestCategory>
+      <Execution id="330c89e7-fc81-4ff7-b123-36a93d8ee51a" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithNoItems" />
+    </UnitTest>
+    <UnitTest name="AbleToAccessIsAlivePageWhileTheServiceIsRunning" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="27ad4e40-da18-2957-631d-3ff19adb554b">
+      <TestCategory>
+        <TestCategoryItem TestCategory="IsAlive" />
+      </TestCategory>
+      <Execution id="88b80e6b-143d-4036-9974-b43773c4ef5d" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.IsAliveFeatureFeature" name="AbleToAccessIsAlivePageWhileTheServiceIsRunning" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithDiscountGreaterThan100Percent" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="64a1b224-85e2-a446-e140-23058bb7f166">
+      <TestCategory>
+        <TestCategoryItem TestCategory="AC10" />
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="Boundary" />
+      </TestCategory>
+      <Execution id="cf1e5a55-5b4a-41ee-b821-b0c663cd9012" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithDiscountGreaterThan100Percent" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithZeroItemQuantity" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="f8173a55-3d58-673c-2077-b38297107dd4">
+      <TestCategory>
+        <TestCategoryItem TestCategory="AC12" />
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="Boundary" />
+      </TestCategory>
+      <Execution id="b9df0709-5511-49fb-8952-6d30c4005e4e" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithZeroItemQuantity" />
+    </UnitTest>
+    <UnitTest name="SuccessfullyCreateANewQuoteWithOneItem (Customer A,Banana,3,5,15,)" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="9378a571-20bd-4751-eed4-01299e277300">
+      <TestCategory>
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC1" />
+      </TestCategory>
+      <Execution id="588fc177-6c4b-4cad-8d12-69cc81512334" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="SuccessfullyCreateANewQuoteWithOneItem" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithNegativeItemQuantity" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="0659643b-56ba-01f9-ea00-af009878998f">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="AC8" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="Boundary" />
+      </TestCategory>
+      <Execution id="2b9296c6-dd68-4f45-b8b7-9ccf420896ef" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithNegativeItemQuantity" />
+    </UnitTest>
+    <UnitTest name="CreateAQuoteWith100ItemsWithinAnAcceptableResponseTime" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="97d77096-7995-c202-2f8d-587cb23491ea">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Performance" />
+        <TestCategoryItem TestCategory="AC15" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+      </TestCategory>
+      <Execution id="15018dd5-9bb2-45bd-b667-114789f7c2a1" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="CreateAQuoteWith100ItemsWithinAnAcceptableResponseTime" />
+    </UnitTest>
+    <UnitTest name="SuccessfullyCreateAQuoteWithMultipleItemsIncludingDiscount (Customer E,Notebook,2,100,0.10,Mouse,1,50,230,)" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="e1bb1a55-1b5c-bad3-9cc9-3c65932855b5">
+      <TestCategory>
+        <TestCategoryItem TestCategory="CreateQuote" />
+        <TestCategoryItem TestCategory="AC4" />
+      </TestCategory>
+      <Execution id="9c522ef5-96f2-419c-b583-8ecd0bf14443" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="SuccessfullyCreateAQuoteWithMultipleItemsIncludingDiscount" />
+    </UnitTest>
+    <UnitTest name="RejectQuoteWithEmptyItemName" storage="c:\eurofins\qualityassurancetakehome\sources\quote.solution\quoteacceptancetests\bin\debug\net8.0\quoteacceptancetests.dll" id="d06ce2b1-4175-7b37-4ffb-c55c4a562b1e">
+      <TestCategory>
+        <TestCategoryItem TestCategory="Negative" />
+        <TestCategoryItem TestCategory="AC7" />
+        <TestCategoryItem TestCategory="CreateQuote" />
+      </TestCategory>
+      <Execution id="fc34128e-c833-4702-ab40-af6952276921" />
+      <TestMethod codeBase="C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\bin\Debug\net8.0\QuoteAcceptanceTests.dll" adapterTypeName="executor://mstestadapter/v2" className="QuoteAcceptanceTests.Features.CreateQuoteFeature" name="RejectQuoteWithEmptyItemName" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="d3e17d0d-d4b0-0dec-d651-485a67d44be1" executionId="dc6936c0-bd82-4b42-9e39-32ec04a67f5b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9378a571-20bd-4751-eed4-01299e277300" executionId="588fc177-6c4b-4cad-8d12-69cc81512334" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5f318cb-2718-a5de-15ec-6e4b18fe3b14" executionId="87bb89a6-1fd8-4571-ad34-4f597efc90f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e1bb1a55-1b5c-bad3-9cc9-3c65932855b5" executionId="9c522ef5-96f2-419c-b583-8ecd0bf14443" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0659643b-56ba-01f9-ea00-af009878998f" executionId="2b9296c6-dd68-4f45-b8b7-9ccf420896ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="23e032dc-c427-35f7-a19b-5f6c027dfed6" executionId="8def3ae5-8617-40ce-8f43-fae5fb071523" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="97d77096-7995-c202-2f8d-587cb23491ea" executionId="15018dd5-9bb2-45bd-b667-114789f7c2a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f66610a1-9fc1-2fc2-3ba8-16e7cadc4bc6" executionId="214f6fa7-c7e3-4f07-acc6-d71667a0359c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="84517ab1-9183-c601-1690-ec5bda715a0d" executionId="aebef5b5-db63-426b-9945-bfa42d587113" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f8173a55-3d58-673c-2077-b38297107dd4" executionId="b9df0709-5511-49fb-8952-6d30c4005e4e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d06ce2b1-4175-7b37-4ffb-c55c4a562b1e" executionId="fc34128e-c833-4702-ab40-af6952276921" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="95d200ea-3bf1-04de-8d8d-3e519febffd9" executionId="330c89e7-fc81-4ff7-b123-36a93d8ee51a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f5d6b42b-4c89-1761-68dd-53a865bffc36" executionId="74df0f9c-2f73-481e-b1f4-1f5044b51d5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45976fd1-d5a5-f6bb-4798-022c13b1c3e0" executionId="d3fd26a8-bd4b-43e9-87e4-161438f575dc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="64a1b224-85e2-a446-e140-23058bb7f166" executionId="cf1e5a55-5b4a-41ee-b821-b0c663cd9012" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="040ff182-9e7d-c39f-cce1-a0e767815760" executionId="6339fdaf-6cde-4828-9a32-3ebf315a455d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27ad4e40-da18-2957-631d-3ff19adb554b" executionId="88b80e6b-143d-4036-9974-b43773c4ef5d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados que não estão em uma lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos os resultados carregados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="17" executed="17" passed="11" failed="6" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+</TestRun>
