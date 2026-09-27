@@ -1,7 +1,7 @@
 ﻿{
     "version":  1,
-    "totalRuns":  6,
-    "updatedAt":  "2026-09-24T17:56:50-03:00",
+    "totalRuns":  7,
+    "updatedAt":  "2026-09-27T11:20:47-03:00",
     "findings":  [
                      {
                          "id":  "F01",
@@ -12,9 +12,9 @@
                          "requirementStatus":  "Strong inconsistency",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  6,
+                         "occurrences":  7,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                         "lastSeen":  "2026-09-27T11:20:47-03:00"
                      },
                      {
                          "id":  "F02",
@@ -25,9 +25,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  6,
+                         "occurrences":  7,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                         "lastSeen":  "2026-09-27T11:20:47-03:00"
                      },
                      {
                          "id":  "F03",
@@ -38,9 +38,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  6,
+                         "occurrences":  7,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                         "lastSeen":  "2026-09-27T11:20:47-03:00"
                      },
                      {
                          "id":  "F04",
@@ -51,9 +51,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  6,
+                         "occurrences":  7,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                         "lastSeen":  "2026-09-27T11:20:47-03:00"
                      },
                      {
                          "id":  "F05",
@@ -64,9 +64,9 @@
                          "requirementStatus":  "Needs clarification",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  6,
+                         "occurrences":  7,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                         "lastSeen":  "2026-09-27T11:20:47-03:00"
                      },
                      {
                          "id":  "F06",
@@ -77,9 +77,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  6,
+                         "occurrences":  7,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-24T17:56:50-03:00"
+                         "lastSeen":  "2026-09-27T11:20:47-03:00"
                      }
                  ]
 }

@@ -1,10 +1,10 @@
 ﻿QA FAILURE EVIDENCE
 
 Run ID:
-20260924-175650
+20260927-112047
 
 Timestamp:
-2026-09-24T17:56:50-03:00
+2026-09-27T11:20:47-03:00
 
 Evidence ID:
 F06
@@ -37,7 +37,7 @@ Failure Message:
 Assert.AreEqual falhou. Esperado:<400>. Real:<200>. 
 
 Stack Trace:
-   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209
+   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\sources\quote.solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209
    at InvokeStub_Action`2.Invoke(Object, Span`1)
    at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
 --- End of stack trace from previous location ---
@@ -47,5 +47,5 @@ Stack Trace:
    at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()
    at Reqnroll.TestRunner.CollectScenarioErrorsAsync()
    at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()
-   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithNegativeDiscount() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 135
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithNegativeDiscount() in C:\Eurofins\QualityAssuranceTakeHome\sources\quote.solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 135
 
