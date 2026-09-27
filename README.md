@@ -28,6 +28,57 @@ The application and tests were executed using the .NET CLI.
 
 ---
 
+
+## Quick Start / Demo Flow
+
+Run all commands from the **solution root directory**, meaning the folder that contains `Quote.sln`.
+
+Use two terminals during execution.
+
+### Terminal 1 - Start the API
+
+```powershell
+dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
+```
+
+Wait until the terminal shows that the application is listening on:
+
+```text
+http://localhost:59252
+```
+
+Keep this terminal running.
+
+### Terminal 2 - Run the automated suite and generate reports
+
+If PowerShell blocks local script execution because of the execution policy, allow it only for the current terminal session:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+```
+
+Then execute:
+
+```powershell
+.\RunTestsAndGenerateReport.ps1
+```
+
+Open the main report:
+
+```powershell
+start .\TestResults\TestReport.html
+```
+
+Open the highlighted failure report:
+
+```powershell
+start .\TestResults\FailureEvidence\FailureReport.html
+```
+
+The `Process` scope means the temporary execution-policy change is limited to the current PowerShell process and is discarded when that terminal is closed.
+
+---
+
 ## Project Structure
 
 Main files and folders relevant to the QA solution:
@@ -42,6 +93,7 @@ Quote.Solution
 │       └── CreateQuoteRequests.http
 ├── QuoteService
 ├── QuoteService.UnitTests
+├── README.md
 ├── TEST_FINDINGS.md
 ├── AdditionalAcceptanceCriteria.md
 ├── RunTestsAndGenerateReport.ps1
@@ -116,6 +168,25 @@ From the solution root directory, execute:
 ```powershell
 .\RunTestsAndGenerateReport.ps1
 ```
+
+
+### PowerShell Execution Policy
+
+On some Windows environments, PowerShell may block the reporting script because local script execution is restricted.
+
+If this happens, run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+```
+
+Then execute the reporting script normally:
+
+```powershell
+.\RunTestsAndGenerateReport.ps1
+```
+
+This setting applies only to the current PowerShell process and does not permanently change the machine-wide execution policy.
 
 The script automatically:
 
@@ -360,6 +431,19 @@ The security-related scenario sends malformed JSON to the Create Quote endpoint 
 - Internal exception or stack trace information is not exposed in the API response
 
 This is a basic API security and information-disclosure validation and is not intended to represent a complete penetration test.
+
+---
+
+
+## Troubleshooting
+
+| Symptom | Likely cause | Action |
+| --- | --- | --- |
+| `Project file does not exist` | Command executed outside the solution root directory | Navigate to the folder containing `Quote.sln` and run the command again |
+| `RunTestsAndGenerateReport.ps1 is not recognized` | The local script was called without `.\`, the file has another name, or the terminal is in the wrong directory | Confirm the file name and run `.\RunTestsAndGenerateReport.ps1` |
+| Script execution is blocked by PowerShell | Current execution policy does not allow the local script | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force` and retry |
+| Reporting script says the API is not running | The API terminal is closed or the API is not listening on port `59252` | Start the API in a separate terminal and keep it running |
+| `NoProcessFoundForGivenName` after pasting a command | The PowerShell prompt text such as `PS C:\...>` was pasted together with the command | Paste only the command itself |
 
 ---
 
