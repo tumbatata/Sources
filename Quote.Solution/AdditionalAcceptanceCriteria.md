@@ -64,6 +64,7 @@ Given the customer value is empty
 And the quote contains at least one valid item
 When I try to create the quote
 Then the HTTP status should be 400
+And the error response should contain "Customer or Items cannot be null or empty"
 ```
 
 **Expected behavior:**  
@@ -82,6 +83,7 @@ Given a valid customer
 And no items are included in the quote
 When I try to create the quote
 Then the HTTP status should be 400
+And the error response should contain "Customer or Items cannot be null or empty"
 ```
 
 **Expected behavior:**  
@@ -266,11 +268,9 @@ This criterion is not currently satisfied by the API and is documented as findin
 ```gherkin
 Scenario: Reject malformed JSON without exposing internal server details
 
-Given a malformed JSON request
-When the request is sent to the Create Quote endpoint
+When I send malformed JSON to create the quote
 Then the HTTP status should be 400
-And the response should not expose internal exception details
-And the response should not expose stack trace information
+And the response should not contain internal exception details
 ```
 
 **Purpose:**  
