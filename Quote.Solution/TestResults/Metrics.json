@@ -1,12 +1,12 @@
 ﻿{
-    "generatedAt":  "2026-09-27T11:20:47-03:00",
-    "runId":  "20260927-112047",
+    "generatedAt":  "2026-09-28T08:40:26-03:00",
+    "runId":  "20260928-084026",
     "execution":  {
                       "total":  17,
                       "passed":  11,
                       "failed":  6,
                       "skipped":  0,
-                      "durationMs":  213.12,
+                      "durationMs":  261.61,
                       "dotnetExitCode":  1
                   },
     "failureClassification":  {
@@ -14,7 +14,7 @@
                                   "unexpectedFailures":  0
                               },
     "cumulative":  {
-                       "totalRuns":  7,
+                       "totalRuns":  9,
                        "uniqueFindingsSeen":  6,
                        "activeFindings":  6,
                        "highSeverityActive":  4,
@@ -22,9 +22,9 @@
                    },
     "performance":  {
                         "scenarioOutcome":  "Passed",
-                        "apiResponseMs":  3,
+                        "apiResponseMs":  4,
                         "thresholdMs":  2000,
-                        "testDurationMs":  7.1
+                        "testDurationMs":  10.37
                     },
     "findings":  [
                      {
@@ -36,9 +36,9 @@
                          "requirementStatus":  "Strong inconsistency",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  7,
+                         "occurrences":  9,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-27T11:20:47-03:00"
+                         "lastSeen":  "2026-09-28T08:40:26-03:00"
                      },
                      {
                          "id":  "F02",
@@ -49,9 +49,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  7,
+                         "occurrences":  9,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-27T11:20:47-03:00"
+                         "lastSeen":  "2026-09-28T08:40:26-03:00"
                      },
                      {
                          "id":  "F03",
@@ -62,9 +62,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  7,
+                         "occurrences":  9,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-27T11:20:47-03:00"
+                         "lastSeen":  "2026-09-28T08:40:26-03:00"
                      },
                      {
                          "id":  "F04",
@@ -75,9 +75,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  7,
+                         "occurrences":  9,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-27T11:20:47-03:00"
+                         "lastSeen":  "2026-09-28T08:40:26-03:00"
                      },
                      {
                          "id":  "F05",
@@ -88,9 +88,9 @@
                          "requirementStatus":  "Needs clarification",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  7,
+                         "occurrences":  9,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-27T11:20:47-03:00"
+                         "lastSeen":  "2026-09-28T08:40:26-03:00"
                      },
                      {
                          "id":  "F06",
@@ -101,9 +101,9 @@
                          "requirementStatus":  "Expected validation",
                          "status":  "Reproduced",
                          "latestOutcome":  "Failed",
-                         "occurrences":  7,
+                         "occurrences":  9,
                          "firstSeen":  "2026-09-24T14:37:17-03:00",
-                         "lastSeen":  "2026-09-27T11:20:47-03:00"
+                         "lastSeen":  "2026-09-28T08:40:26-03:00"
                      }
                  ]
 }

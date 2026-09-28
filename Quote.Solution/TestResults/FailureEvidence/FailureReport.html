@@ -53,108 +53,12 @@ a {
 
 <p>
 Run ID:
-<strong>20260927-112047</strong>
+<strong>20260928-084026</strong>
 </p>
 
 <h2>Known Findings Reproduced</h2>
 
 <div class="finding">
-
-<h3>
-F06
--
-Negative discount is accepted
-</h3>
-
-<p>
-<strong>Automated scenario:</strong>
-Reject quote with negative discount
-</p>
-
-<p>
-<strong>Severity:</strong>
-High
-</p>
-
-<p>
-<strong>Category:</strong>
-Financial Validation / Business Logic
-</p>
-
-<p>
-<strong>Requirement Status:</strong>
-Expected validation
-</p>
-
-<p>
-<strong>Expected:</strong>
-HTTP 400 Bad Request
-</p>
-
-<p>
-<strong>Automated test result:</strong>
-<span class="failed">FAILED</span>
-</p>
-
-<h4>Failure message</h4>
-
-<pre>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </pre>
-
-<p>
-<a href="F06-RejectQuoteWithNegativeDiscount.txt">
-Open raw evidence
-</a>
-</p>
-
-</div><div class="finding">
-
-<h3>
-F01
--
-Empty item name returns HTTP 200
-</h3>
-
-<p>
-<strong>Automated scenario:</strong>
-Reject quote with empty item name
-</p>
-
-<p>
-<strong>Severity:</strong>
-Medium
-</p>
-
-<p>
-<strong>Category:</strong>
-API Contract / Error Handling
-</p>
-
-<p>
-<strong>Requirement Status:</strong>
-Strong inconsistency
-</p>
-
-<p>
-<strong>Expected:</strong>
-HTTP 400 Bad Request
-</p>
-
-<p>
-<strong>Automated test result:</strong>
-<span class="failed">FAILED</span>
-</p>
-
-<h4>Failure message</h4>
-
-<pre>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </pre>
-
-<p>
-<a href="F01-RejectQuoteWithEmptyItemName.txt">
-Open raw evidence
-</a>
-</p>
-
-</div><div class="finding">
 
 <h3>
 F05
@@ -253,14 +157,14 @@ Open raw evidence
 </div><div class="finding">
 
 <h3>
-F03
+F06
 -
-Negative unitary price is accepted
+Negative discount is accepted
 </h3>
 
 <p>
 <strong>Automated scenario:</strong>
-Reject quote with negative unitary price
+Reject quote with negative discount
 </p>
 
 <p>
@@ -270,7 +174,7 @@ High
 
 <p>
 <strong>Category:</strong>
-Financial Validation / Data Integrity
+Financial Validation / Business Logic
 </p>
 
 <p>
@@ -293,7 +197,7 @@ HTTP 400 Bad Request
 <pre>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </pre>
 
 <p>
-<a href="F03-RejectQuoteWithNegativeUnitaryPrice.txt">
+<a href="F06-RejectQuoteWithNegativeDiscount.txt">
 Open raw evidence
 </a>
 </p>
@@ -342,6 +246,102 @@ HTTP 400 Bad Request
 
 <p>
 <a href="F04-RejectQuoteWithDiscountGreaterThan100Percent.txt">
+Open raw evidence
+</a>
+</p>
+
+</div><div class="finding">
+
+<h3>
+F03
+-
+Negative unitary price is accepted
+</h3>
+
+<p>
+<strong>Automated scenario:</strong>
+Reject quote with negative unitary price
+</p>
+
+<p>
+<strong>Severity:</strong>
+High
+</p>
+
+<p>
+<strong>Category:</strong>
+Financial Validation / Data Integrity
+</p>
+
+<p>
+<strong>Requirement Status:</strong>
+Expected validation
+</p>
+
+<p>
+<strong>Expected:</strong>
+HTTP 400 Bad Request
+</p>
+
+<p>
+<strong>Automated test result:</strong>
+<span class="failed">FAILED</span>
+</p>
+
+<h4>Failure message</h4>
+
+<pre>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </pre>
+
+<p>
+<a href="F03-RejectQuoteWithNegativeUnitaryPrice.txt">
+Open raw evidence
+</a>
+</p>
+
+</div><div class="finding">
+
+<h3>
+F01
+-
+Empty item name returns HTTP 200
+</h3>
+
+<p>
+<strong>Automated scenario:</strong>
+Reject quote with empty item name
+</p>
+
+<p>
+<strong>Severity:</strong>
+Medium
+</p>
+
+<p>
+<strong>Category:</strong>
+API Contract / Error Handling
+</p>
+
+<p>
+<strong>Requirement Status:</strong>
+Strong inconsistency
+</p>
+
+<p>
+<strong>Expected:</strong>
+HTTP 400 Bad Request
+</p>
+
+<p>
+<strong>Automated test result:</strong>
+<span class="failed">FAILED</span>
+</p>
+
+<h4>Failure message</h4>
+
+<pre>Assert.AreEqual falhou. Esperado:&lt;400&gt;. Real:&lt;200&gt;. </pre>
+
+<p>
+<a href="F01-RejectQuoteWithEmptyItemName.txt">
 Open raw evidence
 </a>
 </p>
