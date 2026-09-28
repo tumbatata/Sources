@@ -29,15 +29,94 @@ The application and tests were executed using the .NET CLI.
 ---
 
 
+## Open the Solution Correctly in VS Code
+
+To avoid path-related errors, open the **solution folder itself** instead of the parent take-home folder.
+
+In Visual Studio Code:
+
+1. Select **File > Open Folder...**
+2. Open:
+
+```text
+Sources/Quote.Solution
+```
+
+This is the folder that contains:
+
+```text
+Quote.sln
+```
+
+3. Open a new integrated terminal using **Terminal > New Terminal** or `Ctrl + ``.
+4. Confirm that the terminal is already inside the solution root.
+
+You can verify the current directory with:
+
+```powershell
+pwd
+```
+
+The path should end with:
+
+```text
+...\Sources\Quote.Solution
+```
+
+If the terminal is instead opened from the parent `QualityAssuranceTakeHome` folder, the recommended option is to reopen `Sources/Quote.Solution` using **File > Open Folder...**.
+
+Alternatively, navigate manually with:
+
+```powershell
+cd .\Sources\Quote.Solution
+```
+
+All commands in this README assume that the current directory is the folder containing `Quote.sln`.
+
+---
+
+
 ## Quick Start / Demo Flow
 
-Run all commands from the **solution root directory**, meaning the folder that contains `Quote.sln`.
+For the cleanest presentation, open `Sources/Quote.Solution` directly in VS Code.
 
-Use two terminals during execution.
+Before running anything, use this safe positioning block in the terminal:
+
+```powershell
+if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
+    Set-Location ".\Sources\Quote.Solution"
+}
+elseif (-not (Test-Path ".\Quote.sln")) {
+    throw "Quote.Solution was not found. Open QualityAssuranceTakeHome or Sources/Quote.Solution in VS Code."
+}
+
+pwd
+```
+
+This block works in both common situations:
+
+- If VS Code was opened at `QualityAssuranceTakeHome`, it automatically moves the terminal into `Sources\Quote.Solution`.
+- If VS Code was already opened at `Sources\Quote.Solution`, it keeps the terminal there.
+
+After the block runs, the path shown by `pwd` must end with:
+
+```text
+...\Sources\Quote.Solution
+```
+
+All commands below assume that the terminal is now in that folder.
+
+Use two terminals during execution. If a new terminal opens again in the parent folder, run the same positioning block once in that terminal.
 
 ### Terminal 1 - Start the API
 
+Copy and run the **entire block below**. It works whether the terminal opens at `QualityAssuranceTakeHome` or already at `Sources/Quote.Solution`.
+
 ```powershell
+if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
+    Set-Location ".\Sources\Quote.Solution"
+}
+
 dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
 ```
 
@@ -51,15 +130,14 @@ Keep this terminal running.
 
 ### Terminal 2 - Run the automated suite and generate reports
 
-If PowerShell blocks local script execution because of the execution policy, allow it only for the current terminal session:
+Copy and run the **entire block below**. It first moves to the solution folder if needed, temporarily allows local PowerShell script execution for this terminal, and then runs the QA reporting script.
 
 ```powershell
+if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
+    Set-Location ".\Sources\Quote.Solution"
+}
+
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-```
-
-Then execute:
-
-```powershell
 .\RunTestsAndGenerateReport.ps1
 ```
 
@@ -105,7 +183,21 @@ Quote.Solution
 
 ## Start the Quote API
 
-From the solution root directory, run:
+Open a terminal from the solution root directory.
+
+Before running the API, optionally verify the current directory:
+
+```powershell
+pwd
+```
+
+The path must end with:
+
+```text
+...\Sources\Quote.Solution
+```
+
+Then run:
 
 ```powershell
 dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
@@ -155,7 +247,9 @@ The filter is useful when investigating or validating one scenario independently
 
 ## Run Tests and Generate QA Reports
 
-The solution includes an automated QA reporting script:
+Open a second terminal.
+
+The solution includes an automated QA reporting script. The commands below are safe even if the terminal opens one level above the solution:
 
 ```text
 RunTestsAndGenerateReport.ps1
@@ -163,9 +257,14 @@ RunTestsAndGenerateReport.ps1
 
 Make sure the Quote API is already running.
 
-From the solution root directory, execute:
+Execute:
 
 ```powershell
+if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
+    Set-Location ".\Sources\Quote.Solution"
+}
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 .\RunTestsAndGenerateReport.ps1
 ```
 
@@ -437,13 +536,89 @@ This is a basic API security and information-disclosure validation and is not in
 
 ## Troubleshooting
 
-| Symptom | Likely cause | Action |
-| --- | --- | --- |
-| `Project file does not exist` | Command executed outside the solution root directory | Navigate to the folder containing `Quote.sln` and run the command again |
-| `RunTestsAndGenerateReport.ps1 is not recognized` | The local script was called without `.\`, the file has another name, or the terminal is in the wrong directory | Confirm the file name and run `.\RunTestsAndGenerateReport.ps1` |
-| Script execution is blocked by PowerShell | Current execution policy does not allow the local script | Run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force` and retry |
-| Reporting script says the API is not running | The API terminal is closed or the API is not listening on port `59252` | Start the API in a separate terminal and keep it running |
-| `NoProcessFoundForGivenName` after pasting a command | The PowerShell prompt text such as `PS C:\...>` was pasted together with the command | Paste only the command itself |
+### Terminal opened in the wrong folder
+
+Check the current directory:
+
+```powershell
+pwd
+```
+
+The path should end with:
+
+```text
+...\Sources\Quote.Solution
+```
+
+If it does not, either reopen `Sources/Quote.Solution` using **File > Open Folder...** or navigate manually:
+
+```powershell
+cd .\Sources\Quote.Solution
+```
+
+### `Project file does not exist`
+
+This usually means the command was executed outside the solution root directory.
+
+Make sure the terminal is inside the folder that contains:
+
+```text
+Quote.sln
+```
+
+Then run the command again.
+
+### `RunTestsAndGenerateReport.ps1 is not recognized`
+
+Confirm that:
+
+- The terminal is inside `Sources/Quote.Solution`
+- The file is named `RunTestsAndGenerateReport.ps1`
+- The script is executed with `.\`
+
+Run:
+
+```powershell
+.\RunTestsAndGenerateReport.ps1
+```
+
+### PowerShell blocks script execution
+
+If PowerShell blocks the script because of the execution policy, allow script execution only for the current terminal session:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+```
+
+Then run:
+
+```powershell
+.\RunTestsAndGenerateReport.ps1
+```
+
+### Reporting script says the API is not running
+
+Make sure the API is running in a separate terminal on port `59252`.
+
+Start it with:
+
+```powershell
+dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
+```
+
+Keep that terminal open while running the automated tests.
+
+### `NoProcessFoundForGivenName`
+
+This can happen if the PowerShell prompt itself was copied together with the command.
+
+Do not copy:
+
+```text
+PS C:\...
+```
+
+Copy only the command that comes after the prompt.
 
 ---
 
