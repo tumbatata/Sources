@@ -142,6 +142,33 @@ namespace QuoteAcceptanceTests.StepDefinitions
                     .ReadFromJsonAsync<CreateQuoteResponse>();
         }
 
+        [Then(@"the quote customer and item details should match the request")]
+        public void ThenTheQuoteDetailsShouldMatchTheRequest()
+        {
+            Assert.IsNotNull(this.responseBody);
+            Assert.IsNotNull(this.responseBody.Quote);
+
+            var quote = this.responseBody.Quote;
+            Assert.AreEqual(this.request.Customer, quote.Customer);
+            Assert.AreEqual(this.request.Items.Count, quote.Lines.Count);
+
+            // These scenarios use unique item names. Match by name so that
+            // the test does not impose an undocumented response ordering.
+            foreach (var expectedItem in this.request.Items)
+            {
+                var matchingLines = quote.Lines
+                    .Where(line => line.Item == expectedItem.Item)
+                    .ToList();
+                Assert.AreEqual(1, matchingLines.Count,
+                    $"Expected one response line for item '{expectedItem.Item}'.");
+
+                var actualLine = matchingLines[0];
+                Assert.AreEqual(expectedItem.Quantity, actualLine.Quantity);
+                Assert.AreEqual(expectedItem.UnitaryPrice, actualLine.UnitaryPrice);
+                Assert.AreEqual(expectedItem.DiscountPercentage, actualLine.DiscountPercentage);
+            }
+        }
+
         [Then(@"the line price should be (.*)")]
         public void ThenTheLinePriceShouldBe(decimal total)
         {
@@ -208,7 +235,8 @@ namespace QuoteAcceptanceTests.StepDefinitions
 
             Assert.AreEqual(
                 expectedStatus,
-                (int)this.response.StatusCode);
+                (int)this.response.StatusCode,
+                $"HTTP_STATUS_MISMATCH expected={expectedStatus} actual={(int)this.response.StatusCode}");
         }
 
         [Then(@"the error response should contain ""(.*)""")]

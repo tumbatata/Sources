@@ -1,629 +1,137 @@
-# Quality Assurance Take-Home - Create Quote API
+# Create Quote API acceptance tests
 
-## Overview
+This solution tests the supplied quote API using C#, .NET 8, Reqnroll/Gherkin and MSTest. The suite covers the provided criteria and additional positive, negative, boundary, error-handling and response-time scenarios. Proposed business rules and findings are documented separately.
 
-This solution contains the automated acceptance tests created for the **Create a New Quote** user story.
+## Automated demo on Windows
 
-The implementation uses:
+With the .NET 8 SDK installed, double-click **RunDemo.cmd** in this folder. No terminal directory setup is required. You can also right-click the file in VS Code, choose **Reveal in File Explorer**, and double-click it there.
 
-- C#
-- .NET 8
-- Reqnroll / Gherkin for BDD scenarios
-- MSTest for test execution and assertions
-- PowerShell for automated test reporting and quality metrics
+The launcher uses its own location, reuses an API already responding at the health endpoint or starts the supplied API, waits up to 120 seconds for readiness, runs the acceptance suite with reports, and opens the newly generated HTML report. It stops only an API process tree it started itself. A pre-existing API remains running; stop it before the demo if you want a fresh instance from this checkout.
 
-The test suite covers the acceptance criteria provided in the assignment as well as additional scenarios identified during the QA analysis.
+The command window remains open for inspection. Six documented failures are expected; the launcher preserves the failing exit code. A startup or reporting error is shown instead of opening an old report. API startup logs are in `TestResults/Demo/`.
 
----
+The launcher uses `RemoteSigned` for its PowerShell process only and unblocks the two supplied PowerShell files. It does not permanently change the machine's execution policy. Organization-enforced policies still apply.
+
+## Manual execution: working directory
+
+Open the folder containing `Quote.sln` before running commands.
+
+- From the cloned GitHub repository root: `cd .\Quote.Solution`.
+- From the original take-home archive root: `cd .\Sources\Quote.Solution`.
+- If `Quote.sln` is already in the current folder, no directory change is needed.
+
+Check your location in PowerShell:
+
+```powershell
+Test-Path .\Quote.sln
+```
+
+The result should be `True`. Use this working directory in both terminals.
 
 ## Prerequisites
 
-The following are required:
+- .NET 8 SDK.
+- PowerShell for the optional report script.
+- Visual Studio 2022 or VS Code, if using an IDE.
 
-- .NET 8 SDK
-- Visual Studio 2022 or Visual Studio Code
-- PowerShell
+## Start the API
 
-The application and tests were executed using the .NET CLI.
-
----
-
-
-## Open the Solution Correctly in VS Code
-
-To avoid path-related errors, open the **solution folder itself** instead of the parent take-home folder.
-
-In Visual Studio Code:
-
-1. Select **File > Open Folder...**
-2. Open:
-
-```text
-Sources/Quote.Solution
-```
-
-This is the folder that contains:
-
-```text
-Quote.sln
-```
-
-3. Open a new integrated terminal using **Terminal > New Terminal** or `Ctrl + ``.
-4. Confirm that the terminal is already inside the solution root.
-
-You can verify the current directory with:
-
-```powershell
-pwd
-```
-
-The path should end with:
-
-```text
-...\Sources\Quote.Solution
-```
-
-If the terminal is instead opened from the parent `QualityAssuranceTakeHome` folder, the recommended option is to reopen `Sources/Quote.Solution` using **File > Open Folder...**.
-
-Alternatively, navigate manually with:
-
-```powershell
-cd .\Sources\Quote.Solution
-```
-
-All commands in this README assume that the current directory is the folder containing `Quote.sln`.
-
----
-
-
-## Quick Start / Demo Flow
-
-For the cleanest presentation, open `Sources/Quote.Solution` directly in VS Code.
-
-Before running anything, use this safe positioning block in the terminal:
-
-```powershell
-if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
-    Set-Location ".\Sources\Quote.Solution"
-}
-elseif (-not (Test-Path ".\Quote.sln")) {
-    throw "Quote.Solution was not found. Open QualityAssuranceTakeHome or Sources/Quote.Solution in VS Code."
-}
-
-pwd
-```
-
-This block works in both common situations:
-
-- If VS Code was opened at `QualityAssuranceTakeHome`, it automatically moves the terminal into `Sources\Quote.Solution`.
-- If VS Code was already opened at `Sources\Quote.Solution`, it keeps the terminal there.
-
-After the block runs, the path shown by `pwd` must end with:
-
-```text
-...\Sources\Quote.Solution
-```
-
-All commands below assume that the terminal is now in that folder.
-
-Use two terminals during execution. If a new terminal opens again in the parent folder, run the same positioning block once in that terminal.
-
-### Terminal 1 - Start the API
-
-Copy and run the **entire block below**. It works whether the terminal opens at `QualityAssuranceTakeHome` or already at `Sources/Quote.Solution`.
-
-```powershell
-if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
-    Set-Location ".\Sources\Quote.Solution"
-}
-
-dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
-```
-
-Wait until the terminal shows that the application is listening on:
-
-```text
-http://localhost:59252
-```
-
-Keep this terminal running.
-
-### Terminal 2 - Run the automated suite and generate reports
-
-Copy and run the **entire block below**. It first moves to the solution folder if needed, temporarily allows local PowerShell script execution for this terminal, and then runs the QA reporting script.
-
-```powershell
-if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
-    Set-Location ".\Sources\Quote.Solution"
-}
-
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-.\RunTestsAndGenerateReport.ps1
-```
-
-Open the main report:
-
-```powershell
-start .\TestResults\TestReport.html
-```
-
-Open the highlighted failure report:
-
-```powershell
-start .\TestResults\FailureEvidence\FailureReport.html
-```
-
-The `Process` scope means the temporary execution-policy change is limited to the current PowerShell process and is discarded when that terminal is closed.
-
----
-
-## Project Structure
-
-Main files and folders relevant to the QA solution:
-
-```text
-Quote.Solution
-├── Quote
-├── QuoteAcceptanceTests
-│   ├── Features
-│   ├── StepDefinitions
-│   └── Requests
-│       └── CreateQuoteRequests.http
-├── QuoteService
-├── QuoteService.UnitTests
-├── README.md
-├── TEST_FINDINGS.md
-├── AdditionalAcceptanceCriteria.md
-├── RunTestsAndGenerateReport.ps1
-├── TestResults
-└── Quote.sln
-```
-
----
-
-## Start the Quote API
-
-Open a terminal from the solution root directory.
-
-Before running the API, optionally verify the current directory:
-
-```powershell
-pwd
-```
-
-The path must end with:
-
-```text
-...\Sources\Quote.Solution
-```
-
-Then run:
+In terminal 1:
 
 ```powershell
 dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
 ```
 
-Keep this terminal running while executing the automated tests.
+Wait for the listening message and leave the process running. The health endpoint is `http://localhost:59252/api/Quotes/isalive`.
 
-The API health endpoint can be accessed at:
+## Run tests
 
-```text
-http://localhost:59252/api/Quotes/isalive
-```
-
----
-
-## Run All Automated Tests
-
-Open another terminal in the solution root directory and run:
+In terminal 2, first navigate to the folder containing `Quote.sln` again. Opening a new terminal or opening this README does not automatically change its working directory. Then run:
 
 ```powershell
 dotnet test .\QuoteAcceptanceTests\QuoteAcceptanceTests.csproj
 ```
 
-This executes the complete automated test suite.
+This runs the acceptance test project. To run every test project in the solution, including the supplied unit tests, use `dotnet test .\Quote.sln` with the API running.
 
----
-
-## Run a Specific Test
-
-A specific scenario can be executed using the `--filter` option.
-
-Example:
+To run one scenario:
 
 ```powershell
 dotnet test .\QuoteAcceptanceTests\QuoteAcceptanceTests.csproj --filter "Name~RejectMalformedJSONWithoutExposingInternalServerDetails"
 ```
 
-For a more detailed console output:
+For detailed console output:
 
 ```powershell
 dotnet test .\QuoteAcceptanceTests\QuoteAcceptanceTests.csproj --logger "console;verbosity=detailed"
 ```
 
-The filter is useful when investigating or validating one scenario independently from the complete regression suite.
+## Generate reports
 
----
-
-## Run Tests and Generate QA Reports
-
-Open a second terminal.
-
-The solution includes an automated QA reporting script. The commands below are safe even if the terminal opens one level above the solution:
-
-```text
-RunTestsAndGenerateReport.ps1
-```
-
-Make sure the Quote API is already running.
-
-Execute:
-
-```powershell
-if (Test-Path ".\Sources\Quote.Solution\Quote.sln") {
-    Set-Location ".\Sources\Quote.Solution"
-}
-
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-.\RunTestsAndGenerateReport.ps1
-```
-
-
-### PowerShell Execution Policy
-
-On some Windows environments, PowerShell may block the reporting script because local script execution is restricted.
-
-If this happens, run:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-```
-
-Then execute the reporting script normally:
+The following script executes the acceptance suite and produces reports from the actual TRX results:
 
 ```powershell
 .\RunTestsAndGenerateReport.ps1
 ```
 
-This setting applies only to the current PowerShell process and does not permanently change the machine-wide execution policy.
+If Windows marks this trusted downloaded script as blocked, unblock this file once and retry:
 
-The script automatically:
-
-- Executes the complete automated test suite
-- Generates the MSTest TRX result
-- Reads the actual test execution results
-- Classifies failed tests as known findings or unexpected failures
-- Generates quality and execution metrics
-- Tracks findings across multiple executions
-- Prevents the same known finding from being counted as a new defect on every run
-- Records finding occurrences
-- Records first-seen and last-seen timestamps
-- Records performance measurements
-- Updates execution history
-- Generates a full HTML test report
-- Generates a highlighted failure report
-- Stores raw evidence for failed tests
-
----
-
-## Generated Reports
-
-Reports are generated automatically under:
-
-```text
-TestResults/
+```powershell
+Unblock-File -LiteralPath .\RunTestsAndGenerateReport.ps1
+.\RunTestsAndGenerateReport.ps1
 ```
 
-### Main Test Report
-
-```text
-TestResults/TestReport.html
-```
-
-Contains:
-
-- Total tests
-- Passed tests
-- Failed tests
-- Skipped tests
-- Known findings reproduced
-- Unexpected failures
-- Unique findings
-- Number of recorded executions
-- Performance result
-- Current finding status
-- Complete test execution list
-
-The report can be opened using:
+Open the reports:
 
 ```powershell
 start .\TestResults\TestReport.html
-```
-
-### Highlighted Failure Report
-
-```text
-TestResults/FailureEvidence/FailureReport.html
-```
-
-This report highlights the failed scenarios and displays:
-
-- Finding ID
-- Severity
-- Category
-- Requirement status
-- Expected behavior
-- Automated test result
-- Failure message
-- Raw execution evidence
-
-It can be opened using:
-
-```powershell
 start .\TestResults\FailureEvidence\FailureReport.html
 ```
 
-### Additional Generated Files
+The script must be allowed to finish writing reports even when tests fail. It returns the nonzero `dotnet test` exit code; failed, incomplete or empty results also produce a nonzero exit. Known failures are never converted into a successful build.
 
-```text
-TestResults/Metrics.json
-```
+### Failure classification
 
-Stores structured metrics from the latest execution.
+A scenario is associated with a known finding by its exact normalized name. A failed execution is classified as reproducing that finding only when its assertion message contains `HTTP_STATUS_MISMATCH expected=400 actual=200` and its stack trace identifies `ThenTheHttpStatusShouldBe`.
 
-```text
-TestResults/History.csv
-```
+A timeout, HTTP 500, different assertion, or other failure in the same scenario is classified as unexpected and requires investigation. This checks the known HTTP-status symptom; it does not automatically prove the full business impact recorded in the finding. Severity remains a human QA assessment.
 
-Stores the execution history and allows metrics to be compared between test runs.
+The state file tracks finding occurrences and first/last reproduction dates. A different failure in a known scenario is marked as needing investigation, without counting it as another reproduction.
 
-```text
-TestResults/FindingsState.json
-```
+### Output files
 
-Stores the cumulative state of known findings, including:
+| File | Purpose |
+| --- | --- |
+| `TestResults/TestReport.html` | Overall execution report |
+| `TestResults/FailureEvidence/FailureReport.html` | Failed tests and available evidence |
+| `TestResults/Metrics.json` | Latest execution metrics |
+| `TestResults/History.csv` | Execution history |
+| `TestResults/FindingsState.json` | Finding reproduction history |
+| `TestResults/Runs/` | Per-run TRX and console output, generated locally |
 
-- Status
-- Number of occurrences
-- First seen
-- Last seen
-- Latest result
+Committed reports are historical snapshots. Re-run the suite after changing code; do not interpret saved snapshots as evidence of the modified suite. HTML reports should be downloaded and opened locally.
 
-```text
-TestResults/Runs/
-```
+## Test scope and findings
 
-Stores the raw `.trx` file and console output for each individual execution.
+- [Gherkin scenarios](QuoteAcceptanceTests/Features/CreateQuote.feature)
+- [Step implementations](QuoteAcceptanceTests/StepDefinitions/CreateQuoteSteps.cs)
+- [Additional acceptance criteria](AdditionalAcceptanceCriteria.md)
+- [Findings and requirement assumptions](TEST_FINDINGS.md)
+- [Manual reproduction requests](QuoteAcceptanceTests/Requests/CreateQuoteRequests.http)
 
----
+Successful quote scenarios check HTTP status, customer, item details and expected calculations. The item-detail check matches unique item names rather than requiring an undocumented response order. The current test data uses unique names.
 
-## Failure Classification
+Six additional validation scenarios are expected to fail against the supplied implementation. The assignment permits this; the failures remain visible, and production code is unchanged. Assumptions should be reviewed with business stakeholders rather than treated as confirmed requirements.
 
-The report distinguishes between two different types of failures.
+## Performance and error handling
 
-### Known Finding
+The response-time scenario sends one quote with 100 valid items and measures the request using `Stopwatch`. Its threshold of 2000 ms is an assumed baseline, not an official SLA. This is a single-request timing check, not a load or stress test.
 
-A known finding is a behavior that:
-
-1. Was identified during test execution
-2. Was investigated
-3. Was reproduced
-4. Was documented in `TEST_FINDINGS.md`
-5. Was classified by QA
-
-When the same finding fails again in another execution, it is **not counted as a new defect**.
-
-Instead, the report updates:
-
-- Occurrence count
-- Last seen date
-- Current reproduction status
-
-Severity and category are assigned during QA analysis and are not automatically inferred by the test framework.
-
-### Unexpected Failure
-
-If a test fails and does not correspond to a previously documented finding, the report classifies it as:
-
-```text
-Unexpected Failure
-Severity: Unclassified
-Category: Needs triage
-Requirement Status: Needs investigation
-```
-
-The failure must then be investigated before a severity or business impact is assigned.
-
-This prevents the reporting process from automatically treating every technical failure as a confirmed defect.
-
----
-
-## Test Scope
-
-The automated suite covers:
-
-- Provided acceptance criteria
-- Additional happy-path scenarios
-- Negative scenarios
-- Boundary cases
-- Edge cases
-- Business validation
-- Financial validation
-- API error handling
-- Security-related behavior
-- Performance behavior
-
-Some additional automated tests intentionally fail because they reproduce behaviors that do not satisfy the proposed additional acceptance criteria.
-
-Production code was not modified to force these tests to pass.
-
----
-
-## Known Findings
-
-Detailed findings are documented in:
-
-```text
-TEST_FINDINGS.md
-```
-
-Each documented finding contains:
-
-- Scenario
-- Expected result
-- Actual result
-- Category
-- Severity
-- Requirement status
-- Observation
-- Related automated test
-- Reproduction information
-
-Manual API requests used to reproduce selected behaviors are available in:
-
-```text
-QuoteAcceptanceTests/Requests/CreateQuoteRequests.http
-```
-
----
-
-## Additional Acceptance Criteria
-
-The additional acceptance criteria created during the QA analysis are documented separately in:
-
-```text
-AdditionalAcceptanceCriteria.md
-```
-
-They include positive, negative, boundary, edge, security and performance scenarios.
-
----
-
-## Performance Test Assumption
-
-The performance scenario creates a quote containing **100 valid items**.
-
-The automated test currently uses the following response-time threshold:
-
-```text
-< 2000 ms
-```
-
-No official performance SLA or response-time requirement was provided for the exercise.
-
-Therefore, the `2000 ms` threshold is an **assumed baseline used for testing purposes only** and should be validated with product and technical stakeholders in a real project.
-
-The test report records both:
-
-- The configured threshold
-- The actual API response time measured during the execution
-
-The HTTP request duration is measured using `Stopwatch`.
-
----
-
-## Security Scenario
-
-The security-related scenario sends malformed JSON to the Create Quote endpoint and validates that:
-
-- The request is rejected with an HTTP `400` response
-- Internal exception or stack trace information is not exposed in the API response
-
-This is a basic API security and information-disclosure validation and is not intended to represent a complete penetration test.
-
----
-
+The malformed-JSON scenario expects HTTP 400 and checks for selected internal exception markers. It is a focused error-handling check, not a comprehensive security assessment.
 
 ## Troubleshooting
 
-### Terminal opened in the wrong folder
-
-Check the current directory:
-
-```powershell
-pwd
-```
-
-The path should end with:
-
-```text
-...\Sources\Quote.Solution
-```
-
-If it does not, either reopen `Sources/Quote.Solution` using **File > Open Folder...** or navigate manually:
-
-```powershell
-cd .\Sources\Quote.Solution
-```
-
-### `Project file does not exist`
-
-This usually means the command was executed outside the solution root directory.
-
-Make sure the terminal is inside the folder that contains:
-
-```text
-Quote.sln
-```
-
-Then run the command again.
-
-### `RunTestsAndGenerateReport.ps1 is not recognized`
-
-Confirm that:
-
-- The terminal is inside `Sources/Quote.Solution`
-- The file is named `RunTestsAndGenerateReport.ps1`
-- The script is executed with `.\`
-
-Run:
-
-```powershell
-.\RunTestsAndGenerateReport.ps1
-```
-
-### PowerShell blocks script execution
-
-If PowerShell blocks the script because of the execution policy, allow script execution only for the current terminal session:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-```
-
-Then run:
-
-```powershell
-.\RunTestsAndGenerateReport.ps1
-```
-
-### Reporting script says the API is not running
-
-Make sure the API is running in a separate terminal on port `59252`.
-
-Start it with:
-
-```powershell
-dotnet run --project .\Quote\Quote.csproj --urls "http://localhost:59252"
-```
-
-Keep that terminal open while running the automated tests.
-
-### `NoProcessFoundForGivenName`
-
-This can happen if the PowerShell prompt itself was copied together with the command.
-
-Do not copy:
-
-```text
-PS C:\...
-```
-
-Copy only the command that comes after the prompt.
-
----
-
-## Notes
-
-The purpose of the additional scenarios is not only to verify successful behavior, but also to identify unclear requirements, business risks and inconsistent API behavior.
-
-Where the original requirements do not explicitly define the expected behavior, the assumption or need for clarification is documented instead of being treated automatically as a confirmed requirement defect.
+- **Project or script not found:** verify `Test-Path .\Quote.sln` returns `True`.
+- **API unavailable:** start it in terminal 1 and confirm port 59252.
+- **PowerShell policy error:** use the single-file unblock command above. Organization-enforced signing requirements may still prevent execution.
+- **Nonzero exit with reports generated:** review the failed tests; this is intentional even for documented findings.

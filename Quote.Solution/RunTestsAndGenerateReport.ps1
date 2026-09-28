@@ -123,7 +123,7 @@ function Get-FindingForTestName {
     foreach ($Finding in $KnownFindings) {
         $NormalizedPattern = Normalize-TestName $Finding.Pattern
 
-        if ($NormalizedTestName.Contains($NormalizedPattern)) {
+        if ($NormalizedTestName -eq $NormalizedPattern) {
             return $Finding
         }
     }
@@ -427,8 +427,19 @@ foreach ($Node in $ResultNodes) {
     $StackTrace = if ($StackNode) { $StackNode.InnerText } else { "" }
     $StdOut = if ($StdOutNode) { $StdOutNode.InnerText } else { "" }
 
-    # Classification happens AFTER the real test result exists.
-    $Finding = Get-FindingForTestName $TestName
+    # A scenario name identifies a candidate, not the cause of its failure.
+    $CandidateFinding = Get-FindingForTestName $TestName
+    $Finding = $null
+    $RelatedFindingId = if ($CandidateFinding) { $CandidateFinding.Id } else { $null }
+
+    if ($CandidateFinding -and $Outcome -eq "Passed") {
+        $Finding = $CandidateFinding
+    }
+    elseif ($CandidateFinding -and $Outcome -eq "Failed" -and
+        $ErrorMessage.Contains("HTTP_STATUS_MISMATCH expected=400 actual=200") -and
+        $StackTrace.Contains("ThenTheHttpStatusShouldBe")) {
+        $Finding = $CandidateFinding
+    }
 
     $FindingId = $null
     $FindingTitle = $null
@@ -465,6 +476,7 @@ foreach ($Node in $ResultNodes) {
         StackTrace = $StackTrace
         StdOut = $StdOut
         FindingId = $FindingId
+        RelatedFindingId = $RelatedFindingId
         FindingTitle = $FindingTitle
         FindingScenario = $FindingScenario
         Category = $Category
@@ -623,12 +635,17 @@ foreach ($KnownFinding in $KnownFindings) {
 
     $MatchingResults = @(
         $ResultRows |
-        Where-Object { $_.FindingId -eq $KnownFinding.Id }
+        Where-Object { $_.RelatedFindingId -eq $KnownFinding.Id }
     )
 
     $FailedNow = @(
         $MatchingResults |
-        Where-Object { $_.Outcome -eq "Failed" }
+        Where-Object { $_.Outcome -eq "Failed" -and $_.FindingId }
+    ).Count -gt 0
+
+    $UnexpectedNow = @(
+        $MatchingResults |
+        Where-Object { $_.Outcome -eq "Failed" -and -not $_.FindingId }
     ).Count -gt 0
 
     $PassedNow = @(
@@ -649,6 +666,10 @@ foreach ($KnownFinding in $KnownFindings) {
 
         $LastSeen = $Timestamp
         $Status = "Reproduced"
+        $LatestOutcome = "Failed"
+    }
+    elseif ($UnexpectedNow) {
+        $Status = "Needs investigation"
         $LatestOutcome = "Failed"
     }
     elseif ($PassedNow) {
@@ -1534,24 +1555,17 @@ Write-Host ""
 # EXIT BEHAVIOR
 # ============================================================
 
-if ($UnexpectedFailures.Count -gt 0) {
-    Write-Host `
-        "Execution contains unexpected failures. Investigation required." `
-        -ForegroundColor Red
+# Reports are produced even when tests fail. Classification is informational;
+# a documented failure must never turn a failing execution into a green build.
+if ($DotnetExitCode -ne 0) {
+    Write-Host "Tests did not complete successfully. Reports were generated; see the failures above." -ForegroundColor Red
+    exit $DotnetExitCode
+}
 
+if ($Failed -gt 0 -or $Total -eq 0 -or $Skipped -gt 0) {
+    Write-Host "The suite contains failed or incomplete tests, or no tests were executed." -ForegroundColor Red
     exit 1
 }
 
-if ($KnownFindingFailures.Count -gt 0) {
-    Write-Host `
-        "Execution completed successfully with documented findings reproduced." `
-        -ForegroundColor Yellow
-
-    exit 0
-}
-
-Write-Host `
-    "Execution completed successfully with no failures." `
-    -ForegroundColor Green
-
+Write-Host "Execution completed successfully with all tests passed." -ForegroundColor Green
 exit 0

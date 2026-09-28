@@ -6,7 +6,10 @@ Feature: Create Quote
     Given a customer "<customer>"
     And an item "<item>" with quantity <quantity> and unitary price <price>
     When I create the quote
-    Then the line price should be <total>
+    Then the HTTP status should be 200
+    And the quote customer and item details should match the request
+    And the total price should be <total>
+    And the line price should be <total>
     And the confirmation message should be "Quote created successfully."
 
     Examples:
@@ -20,7 +23,10 @@ Feature: Create Quote
     Given a customer "<customer>"
     And an item "<item>" with quantity <quantity>, unitary price <price> and discount <discount>
     When I create the quote
-    Then the discount amount should be <discountAmount>
+    Then the HTTP status should be 200
+    And the quote customer and item details should match the request
+    And the total price should be <total>
+    And the discount amount should be <discountAmount>
     And the line price should be <total>
     And the confirmation message should be "Quote created successfully."
 
@@ -35,7 +41,9 @@ Feature: Create Quote
     And an item "<item1>" with quantity <quantity1> and unitary price <price1>
     And an item "<item2>" with quantity <quantity2> and unitary price <price2>
     When I create the quote
-    Then the quote should contain 2 lines
+    Then the HTTP status should be 200
+    And the quote customer and item details should match the request
+    And the quote should contain 2 lines
     And the total price should be <total>
     And the confirmation message should be "Quote created successfully."
 
@@ -50,7 +58,9 @@ Feature: Create Quote
     And an item "<item1>" with quantity <quantity1>, unitary price <price1> and discount <discount1>
     And an item "<item2>" with quantity <quantity2> and unitary price <price2>
     When I create the quote
-    Then the quote should contain 2 lines
+    Then the HTTP status should be 200
+    And the quote customer and item details should match the request
+    And the quote should contain 2 lines
     And the total price should be <total>
     And the confirmation message should be "Quote created successfully."
 
@@ -113,7 +123,9 @@ Feature: Create Quote
     Given a customer "Customer K"
     And an item "Notebook" with quantity 1, unitary price 100 and discount 1.00
     When I create the quote
-    Then the discount amount should be 100
+    Then the HTTP status should be 200
+    And the quote customer and item details should match the request
+    And the discount amount should be 100
     And the line price should be 0
     And the total price should be 0
     And the confirmation message should be "Quote created successfully."
@@ -148,5 +160,7 @@ Feature: Create Quote
     And 100 valid items
     When I create the quote measuring the response time
     Then the HTTP status should be 200
+    And the quote customer and item details should match the request
+    And the total price should be 1000
     And the quote should contain 100 lines
     And the response time should be less than 2000 milliseconds

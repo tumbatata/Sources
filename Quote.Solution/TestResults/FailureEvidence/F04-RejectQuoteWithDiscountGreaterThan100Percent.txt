@@ -1,10 +1,10 @@
 ﻿QA FAILURE EVIDENCE
 
 Run ID:
-20260928-084026
+20260928-195717
 
 Timestamp:
-2026-09-28T08:40:26-03:00
+2026-09-28T19:57:17-03:00
 
 Evidence ID:
 F04
@@ -34,10 +34,10 @@ Expected:
 HTTP 400 Bad Request
 
 Failure Message:
-Assert.AreEqual falhou. Esperado:<400>. Real:<200>. 
+Assert.AreEqual falhou. Esperado:<400>. Real:<200>. HTTP_STATUS_MISMATCH expected=400 actual=200
 
 Stack Trace:
-   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 209
+   at QuoteAcceptanceTests.StepDefinitions.CreateQuoteSteps.ThenTheHttpStatusShouldBe(Int32 expectedStatus) in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\StepDefinitions\CreateQuoteSteps.cs:line 236
    at InvokeStub_Action`2.Invoke(Object, Span`1)
    at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
 --- End of stack trace from previous location ---
@@ -47,5 +47,5 @@ Stack Trace:
    at Reqnroll.Infrastructure.TestExecutionEngine.OnAfterLastStepAsync()
    at Reqnroll.TestRunner.CollectScenarioErrorsAsync()
    at QuoteAcceptanceTests.Features.CreateQuoteFeature.ScenarioCleanupAsync()
-   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithDiscountGreaterThan100Percent() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 108
+   at QuoteAcceptanceTests.Features.CreateQuoteFeature.RejectQuoteWithDiscountGreaterThan100Percent() in C:\Eurofins\QualityAssuranceTakeHome\Sources\Quote.Solution\QuoteAcceptanceTests\Features\CreateQuote.feature:line 118
 

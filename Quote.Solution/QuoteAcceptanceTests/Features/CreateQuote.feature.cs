@@ -135,9 +135,18 @@ namespace QuoteAcceptanceTests.Features
     await testRunner.WhenAsync("I create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
-    await testRunner.ThenAsync(string.Format("the line price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+    await testRunner.ThenAsync("the HTTP status should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 10
+    await testRunner.AndAsync("the quote customer and item details should match the request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 11
+    await testRunner.AndAsync(string.Format("the total price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 12
+    await testRunner.AndAsync(string.Format("the line price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 13
     await testRunner.AndAsync("the confirmation message should be \"Quote created successfully.\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -168,7 +177,7 @@ namespace QuoteAcceptanceTests.Features
             argumentsOfScenario.Add("discountAmount", discountAmount);
             argumentsOfScenario.Add("total", total);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successfully create a new quote with one item with discount", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
+#line 22
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -178,22 +187,31 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 20
+#line 23
     await testRunner.GivenAsync(string.Format("a customer \"{0}\"", customer), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 24
     await testRunner.AndAsync(string.Format("an item \"{0}\" with quantity {1}, unitary price {2} and discount {3}", item, quantity, price, discount), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 25
     await testRunner.WhenAsync("I create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 23
-    await testRunner.ThenAsync(string.Format("the discount amount should be {0}", discountAmount), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 26
+    await testRunner.ThenAsync("the HTTP status should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 24
+#line 27
+    await testRunner.AndAsync("the quote customer and item details should match the request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 28
+    await testRunner.AndAsync(string.Format("the total price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 29
+    await testRunner.AndAsync(string.Format("the discount amount should be {0}", discountAmount), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 30
     await testRunner.AndAsync(string.Format("the line price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 25
+#line 31
     await testRunner.AndAsync("the confirmation message should be \"Quote created successfully.\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -225,7 +243,7 @@ namespace QuoteAcceptanceTests.Features
             argumentsOfScenario.Add("price2", price2);
             argumentsOfScenario.Add("total", total);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successfully create a new quote with two items", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 33
+#line 39
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -235,25 +253,31 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 34
+#line 40
     await testRunner.GivenAsync(string.Format("a customer \"{0}\"", customer), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 35
+#line 41
     await testRunner.AndAsync(string.Format("an item \"{0}\" with quantity {1} and unitary price {2}", item1, quantity1, price1), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 36
+#line 42
     await testRunner.AndAsync(string.Format("an item \"{0}\" with quantity {1} and unitary price {2}", item2, quantity2, price2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 37
+#line 43
     await testRunner.WhenAsync("I create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 38
-    await testRunner.ThenAsync("the quote should contain 2 lines", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 44
+    await testRunner.ThenAsync("the HTTP status should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 39
+#line 45
+    await testRunner.AndAsync("the quote customer and item details should match the request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 46
+    await testRunner.AndAsync("the quote should contain 2 lines", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 47
     await testRunner.AndAsync(string.Format("the total price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 48
     await testRunner.AndAsync("the confirmation message should be \"Quote created successfully.\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -286,7 +310,7 @@ namespace QuoteAcceptanceTests.Features
             argumentsOfScenario.Add("price2", price2);
             argumentsOfScenario.Add("total", total);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successfully create a quote with multiple items including discount", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 48
+#line 56
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -296,25 +320,31 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 49
+#line 57
     await testRunner.GivenAsync(string.Format("a customer \"{0}\"", customer), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 50
+#line 58
     await testRunner.AndAsync(string.Format("an item \"{0}\" with quantity {1}, unitary price {2} and discount {3}", item1, quantity1, price1, discount1), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 51
+#line 59
     await testRunner.AndAsync(string.Format("an item \"{0}\" with quantity {1} and unitary price {2}", item2, quantity2, price2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 52
+#line 60
     await testRunner.WhenAsync("I create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 53
-    await testRunner.ThenAsync("the quote should contain 2 lines", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 61
+    await testRunner.ThenAsync("the HTTP status should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 54
+#line 62
+    await testRunner.AndAsync("the quote customer and item details should match the request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 63
+    await testRunner.AndAsync("the quote should contain 2 lines", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 64
     await testRunner.AndAsync(string.Format("the total price should be {0}", total), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 55
+#line 65
     await testRunner.AndAsync("the confirmation message should be \"Quote created successfully.\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -334,7 +364,7 @@ namespace QuoteAcceptanceTests.Features
                     "Negative"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with empty customer", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 63
+#line 73
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -344,19 +374,19 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 64
+#line 74
     await testRunner.GivenAsync("a customer \"\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 65
+#line 75
     await testRunner.AndAsync("an item \"Banana\" with quantity 1 and unitary price 5", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 66
+#line 76
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 67
+#line 77
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 68
+#line 78
     await testRunner.AndAsync("the error response should contain \"Customer or Items cannot be null or empty\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -376,7 +406,7 @@ namespace QuoteAcceptanceTests.Features
                     "Negative"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with no items", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 72
+#line 82
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -386,16 +416,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 73
+#line 83
     await testRunner.GivenAsync("a customer \"Customer F\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 74
+#line 84
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 75
+#line 85
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 76
+#line 86
     await testRunner.AndAsync("the error response should contain \"Customer or Items cannot be null or empty\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -415,7 +445,7 @@ namespace QuoteAcceptanceTests.Features
                     "Negative"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with empty item name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 80
+#line 90
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -425,16 +455,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 81
+#line 91
     await testRunner.GivenAsync("a customer \"Customer G\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 82
+#line 92
     await testRunner.AndAsync("an item \"\" with quantity 1 and unitary price 5", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 83
+#line 93
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 84
+#line 94
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -456,7 +486,7 @@ namespace QuoteAcceptanceTests.Features
                     "Boundary"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with negative item quantity", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 88
+#line 98
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -466,16 +496,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 89
+#line 99
     await testRunner.GivenAsync("a customer \"Customer H\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 90
+#line 100
     await testRunner.AndAsync("an item \"Banana\" with quantity -1 and unitary price 5", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 91
+#line 101
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 92
+#line 102
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -497,7 +527,7 @@ namespace QuoteAcceptanceTests.Features
                     "Boundary"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with negative unitary price", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 96
+#line 106
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -507,16 +537,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 97
+#line 107
     await testRunner.GivenAsync("a customer \"Customer I\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 98
+#line 108
     await testRunner.AndAsync("an item \"Banana\" with quantity 1 and unitary price -5", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 99
+#line 109
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 100
+#line 110
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -538,7 +568,7 @@ namespace QuoteAcceptanceTests.Features
                     "Boundary"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with discount greater than 100 percent", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 104
+#line 114
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -548,16 +578,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 105
+#line 115
     await testRunner.GivenAsync("a customer \"Customer J\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 106
+#line 116
     await testRunner.AndAsync("an item \"Notebook\" with quantity 1, unitary price 100 and discount 1.10", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 107
+#line 117
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 108
+#line 118
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -577,7 +607,7 @@ namespace QuoteAcceptanceTests.Features
                     "Boundary"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Successfully create a quote with 100 percent discount", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 112
+#line 122
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -587,25 +617,31 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 113
+#line 123
     await testRunner.GivenAsync("a customer \"Customer K\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 114
+#line 124
     await testRunner.AndAsync("an item \"Notebook\" with quantity 1, unitary price 100 and discount 1.00", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 115
+#line 125
     await testRunner.WhenAsync("I create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 116
-    await testRunner.ThenAsync("the discount amount should be 100", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 126
+    await testRunner.ThenAsync("the HTTP status should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 117
+#line 127
+    await testRunner.AndAsync("the quote customer and item details should match the request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 128
+    await testRunner.AndAsync("the discount amount should be 100", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 129
     await testRunner.AndAsync("the line price should be 0", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 118
+#line 130
     await testRunner.AndAsync("the total price should be 0", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 119
+#line 131
     await testRunner.AndAsync("the confirmation message should be \"Quote created successfully.\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -627,7 +663,7 @@ namespace QuoteAcceptanceTests.Features
                     "Boundary"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with zero item quantity", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 123
+#line 135
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -637,16 +673,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 124
+#line 136
     await testRunner.GivenAsync("a customer \"Customer L\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 125
+#line 137
     await testRunner.AndAsync("an item \"Banana\" with quantity 0 and unitary price 5", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 126
+#line 138
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 127
+#line 139
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -668,7 +704,7 @@ namespace QuoteAcceptanceTests.Features
                     "Boundary"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject quote with negative discount", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 131
+#line 143
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -678,16 +714,16 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 132
+#line 144
     await testRunner.GivenAsync("a customer \"Customer M\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 133
+#line 145
     await testRunner.AndAsync("an item \"Notebook\" with quantity 1, unitary price 100 and discount -0.10", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 134
+#line 146
     await testRunner.WhenAsync("I try to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 135
+#line 147
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -707,7 +743,7 @@ namespace QuoteAcceptanceTests.Features
                     "Security"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Reject malformed JSON without exposing internal server details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 139
+#line 151
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -717,13 +753,13 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 140
+#line 152
     await testRunner.WhenAsync("I send malformed JSON to create the quote", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 141
+#line 153
     await testRunner.ThenAsync("the HTTP status should be 400", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 142
+#line 154
     await testRunner.AndAsync("the response should not contain internal exception details", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -743,7 +779,7 @@ namespace QuoteAcceptanceTests.Features
                     "Performance"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Create a quote with 100 items within an acceptable response time", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 146
+#line 158
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -753,22 +789,28 @@ namespace QuoteAcceptanceTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 147
+#line 159
     await testRunner.GivenAsync("a customer \"Performance Customer\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 148
+#line 160
     await testRunner.AndAsync("100 valid items", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 149
+#line 161
     await testRunner.WhenAsync("I create the quote measuring the response time", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 150
+#line 162
     await testRunner.ThenAsync("the HTTP status should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 151
+#line 163
+    await testRunner.AndAsync("the quote customer and item details should match the request", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 164
+    await testRunner.AndAsync("the total price should be 1000", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 165
     await testRunner.AndAsync("the quote should contain 100 lines", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 152
+#line 166
     await testRunner.AndAsync("the response time should be less than 2000 milliseconds", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
